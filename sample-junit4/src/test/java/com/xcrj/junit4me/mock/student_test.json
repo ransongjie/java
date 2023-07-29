@@ -1,0 +1,94 @@
+{
+    "addOneReq": {
+        "code": "21210213041",
+        "grade": "2021",
+        "name": "xcrj1"
+    },
+    "addBatchReq": [
+        {
+            "code": "21210213041",
+            "grade": "2021",
+            "name": "xcrj1"
+        },
+        {
+            "code": "21210213042",
+            "grade": "2021",
+            "name": "xcrj2"
+        },
+        {
+            "code": "21210213043",
+            "grade": "2021",
+            "name": "xcrj3"
+        }
+    ],
+    "delByIdReq": 1,
+    "delBatchReq": [
+        1,
+        2,
+        3
+    ],
+    "putOneReq": {
+        "id": 1,
+        "code": "21210213021",
+        "grade": "2021",
+        "name": "xcrj1xcrj1"
+    },
+    "putBatchReq": [
+        {
+            "id": 1,
+            "code": "21210213041",
+            "grade": "2021",
+            "name": "xcrj1xcrj1"
+        },
+        {
+            "id": 2,
+            "code": "21210213042",
+            "grade": "2021",
+            "name": "xcrj2xcrj2"
+        },
+        {
+            "id": 3,
+            "code": "21210213043",
+            "grade": "2021",
+            "name": "xcrj3xcrj3"
+        }
+    ],
+    "getByIdReq": 1,
+    "getByIdRes": {
+        "id": 1,
+        "code": "21210213041",
+        "grade": "2021",
+        "name": "xcrj1"
+    },
+    "getListReq": {
+        "code": "21210213041",
+        "grade": "2021",
+        "name": "xcrj1"
+    },
+    "getListRes": [
+        {
+            "id": 1,
+            "code": "21210213041",
+            "grade": "2021",
+            "name": "xcrj1"
+        }
+    ],
+    "getPageReq": {
+        "pageNum": 1,
+        "pageSize": 2
+    },
+    "getPageRes": [
+        {
+            "id": 1,
+            "code": "21210213041",
+            "grade": "2021",
+            "name": "xcrj1"
+        },
+        {
+            "id": 2,
+            "code": "21210213042",
+            "grade": "2021",
+            "name": "xcrj2"
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+server:
+  port: 9092
+
+spring:
+  application:
+    name: gateway
+  main:
+    web-application-type: reactive
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      enabled: true
+      routes:
+        #websocket路由
+        - id: websocket
+          uri: ws://localhost:9093
+#          uri: lb:ws://localhost:9093
+          predicates:
+            - Path=/two/ws/**
+          filters: StripPrefix=2
+        #http路由
+        - id: http
+          uri: http://localhost:9094
+#          uri: lb://localhost:9094
+          predicates:
+            - Path=/two/**
+          filters: StripPrefix=1
