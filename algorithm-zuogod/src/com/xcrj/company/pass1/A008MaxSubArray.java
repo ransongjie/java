@@ -7,6 +7,11 @@ public class A008MaxSubArray {
     public static int maxSubArray(int[]as){
         int pre=as[0];//第i-1个元素往左扩的最大值
         int max=as[0];
+        /**
+         * 从当前位置往左连续子数组最大累加和=
+         * max(只要当前元素值
+         * ,从前一位置往左连续子数组最大累加和相关)
+         */
         for (int i = 1; i < as.length; i++) {
             int c1=as[i];
             int c2=as[i]+pre;

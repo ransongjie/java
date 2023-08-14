@@ -99,11 +99,11 @@
 
 |Intro|Class|More|
 |---|---|---|
-|绳子最多压中几个点|A000MaxPoint||
-|分开GB最小相邻交换次数|A001MinStep||
-|+-获得target的方法数|A002TargetSum||
-|平分司机到AB区域的最高收入|A003MaxIncome||
-|O(1)时间put,get,setAll的HashMap|A004SetAll||
+|绳子最多压中几个点|A000MaxPoint|lr指针从0出发|
+|分开GB最小相邻交换次数|A001MinStep|记录下1个G该被放到什么位置|
+|+-获得target的方法数|A002TargetSum|背包装入或不装入当前物品|
+|平分司机到AB区域的最高收入|A003MaxIncome|只考虑A区域|
+|O(1)时间put,get,setAll的HashMap|A004SetAll|set单个时间setAll时间|
 |最长无重复字符的子串长度|A005MaxLongestSubStr||
 |能力值差k的最大比赛场数|A006MaxGameK||
 |每艘船最多坐两人的最少船数量|A007MinBoat||

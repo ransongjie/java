@@ -1,9 +1,15 @@
 package com.xcrj.company.pass1;
 
+/**
+ * s中t子串的数量
+ *
+ *
+ */
 public class A025WaySubStr1Str2 {
 
     public static int waySubStr1Str2(String s,String t){
         int m=s.length(),n=t.length();
+        //dp[i][j]=s[0~i]中t[0~j]的数量
         int[][]dp=new int[m+1][n+1];
         for (int i = 0; i < m+1; i++) {
             dp[i][0]=1;
@@ -34,6 +40,8 @@ public class A025WaySubStr1Str2 {
         }
         for (int i = 1; i < m+1; i++) {
             for (int j = n; j >=1 ; j--) {
+                //倒序，存在dp[j-1]（dp[i-1][j-1]）
+                //dp[i][j]=dp[i-1][j]+(s.charAt(i-1)==t.charAt(j-1)?dp[i-1][j-1]:0);
                 dp[j]=dp[j]+(s.charAt(i-1)==t.charAt(j-1)?dp[j-1]:0);
             }
         }

@@ -2,6 +2,9 @@ package com.xcrj.company.pass1;
 
 /**
  * 逻辑表达式加括号为true或false的方法数
+ * 字符串长度为奇数，偶数位置是0/1，奇数位置是^/&/|
+ * 只能在逻辑运算符左右画括号
+ * Info记录每种划分为true的方法数，每种划分为false的方法数
  */
 public class A020WayBoolExpression {
     static class Info{
@@ -25,6 +28,7 @@ public class A020WayBoolExpression {
             t+=cs[l]=='1'?1:0;
             f+=cs[l]=='0'?1:0;
         }else{
+            //split位置一定是 ^/&/|，只能在逻辑运算符左右画括号
             for (int split = l+1; split < r; split+=2) {
                 //split最后算
                 Info left=f(cs,l,split-1);

@@ -28,6 +28,7 @@ public class A054LifeGame {
                 +f(ass,i+1,j)+f(ass,i+1,j-1)+f(ass,i,j-1)+f(ass,i-1,j-1);
     }
     private static int f(int[][]ass,int i,int j){
-        return (i>=0&&i< ass.length&&j>=0&&j<ass[0].length&&ass[i][j]==1)?1:0;
+        //! (ass[i][j] & 1) == 1 ，第1位是初始状态
+        return (i >= 0 && i < ass.length && j >= 0 && j < ass[0].length && (ass[i][j] & 1) == 1) ? 1 : 0;
     }
 }

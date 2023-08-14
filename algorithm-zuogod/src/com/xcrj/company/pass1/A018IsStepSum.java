@@ -1,5 +1,11 @@
 package com.xcrj.company.pass1;
 
+/**
+ * stepSum是不是每个数的步骤和
+ * 680+68+6=754, 754是680的步骤和
+ *
+ * 二分法
+ */
 public class A018IsStepSum {
     public static boolean isStepSum(int stepSum){
         int l=0,r=stepSum,m=0,ms=0;

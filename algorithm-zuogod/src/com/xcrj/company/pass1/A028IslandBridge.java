@@ -1,5 +1,9 @@
 package com.xcrj.company.pass1;
 
+/**
+ * 纵横联通两个岛的桥的最短距离
+ *
+ */
 public class A028IslandBridge {
     /**
      * 从初始岛屿出发向外走1圈构成环岛
@@ -13,6 +17,7 @@ public class A028IslandBridge {
         int m=ass.length,n=ass[0].length;
         int all=m*n;
         int islandi=0;//先处理第一个岛屿
+        //二维岛屿一维化
         int curs[]=new int[all];//curs[原岛屿大小]=原岛屿一维位置
         int nxts[]=new int[all];//nxts[新岛屿大小]=新岛屿一维位置
         int distance[][]=new int[2][all];//distance[islandi][新岛一维位置]=出发岛屿到新岛的距离
@@ -37,6 +42,7 @@ public class A028IslandBridge {
 
         int min=Integer.MAX_VALUE;
         for (int i = 0; i < all; i++) {
+            //min(A岛到B岛的距离，B岛到A岛的距离)
             min=Math.min(min,distance[0][i]+distance[1][i]);
         }
         //两个岛屿之前的最短距离
@@ -65,7 +71,8 @@ public class A028IslandBridge {
         ass[i][j]=2;//标识已经处理过
         int dem1Idx=i*n+j;//二维地址(i,h)一维化
         distance[dem1Idx]=1;//自己到自己距离为1
-        curs[curi++]=dem1Idx;
+        curs[curi++]=dem1Idx;//原岛屿一维位置
+        //(i,j) 上下左右
         curi=island(ass,i+1,j,m,n,curs,curi,distance);
         //上一个curi会传入的下一个island()
         curi=island(ass,i-1,j,m,n,curs,curi,distance);

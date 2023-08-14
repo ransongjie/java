@@ -33,10 +33,10 @@ public class GeKLeftmost {
             return -1;
         }
         int mid=(start+end)/2;
-        if(as[mid]>=k){
+        if(as[mid]>=k){//先满足 >=k
             int t=mid;
             int t1=dicho(as,start,mid-1,k);
-            if(t1!=-1&&t1<t){
+            if(t1!=-1&&t1<t){//再满足最左边，更靠近左边则记录
                 t=t1;
             }
             return t;

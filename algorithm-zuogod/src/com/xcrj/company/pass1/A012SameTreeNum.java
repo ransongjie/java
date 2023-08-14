@@ -3,8 +3,10 @@ package com.xcrj.company.pass1;
 /**
  * 相等子树数量
  */
-public class A012SameTree {
+public class A012SameTreeNum {
     /**
+     * 树的相等子树个数=左子树相等子树个数+右子树相等子树个数+当前树是否为相等子树
+     * 暴力递归
      * O(nlogn)。越平衡时间越久
      * @param node 根节点
      * @return
@@ -26,6 +28,11 @@ public class A012SameTree {
                 &&isSame(a.right,b.right);
     }
 
+    /**
+     *
+     * @param node
+     * @return
+     */
     public static int sameTree2(Node node){
         Hash hash=new Hash("SHA-256");
         return process(node,hash).ans;
@@ -40,7 +47,7 @@ public class A012SameTree {
     }
 
     /**
-     * 父亲树的相等子树个数=左子树相等子树个数+右子树相等子树个数
+     * 树的相等子树个数=左子树相等子树个数+右子树相等子树个数+当前树是否为相等子树
      * 将isSame() O(n)优化为 O(1)
      * 序列化
      * 防止树太大，造成序列化字符串过大，信息摘要算法

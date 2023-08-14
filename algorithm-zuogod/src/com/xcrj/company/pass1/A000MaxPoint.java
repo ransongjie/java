@@ -12,6 +12,7 @@ public class A000MaxPoint {
      * @return
      */
     public static int maxPoint(int[]as,int len){
+        //l和r都从0开始，一直<=len直到>len，as[a]和as[b]的距离<=len
         int l=0,r=0,n=as.length,max=0;
         while(l<n){
             //不满足才会退出 所以 不用 r-l+1

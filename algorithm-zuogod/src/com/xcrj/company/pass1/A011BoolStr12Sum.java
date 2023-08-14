@@ -17,18 +17,21 @@ public class A011BoolStr12Sum {
         }
         //dp[i][j], s1的0~i-1子串, s2的0~j-1子串 能否交叉组成s3的0~i+j-1子串
         boolean[][] dp=new boolean[s1.length()+1][s2.length()+1];
+        //无无组成无
         dp[0][0]=true;
+        //s1组成s3
         for (int i = 1; i < s1.length()+1; i++) {//
             if(s1.charAt(i-1)==s3.charAt(i-1)){
                 dp[i][0]=true;
             }else break;//
         }
+        //s2组成s3
         for (int i = 1; i < s2.length()+1; i++) {
             if(s2.charAt(i-1)==s3.charAt(i-1)){
                 dp[0][i]=true;
             }else break;
         }
-
+        //s1或s2组成s3
         for (int i = 1; i < s1.length()+1; i++) {
             for (int j = 1; j < s2.length()+1; j++) {
                 if(s1.charAt(i-1)==s3.charAt(i+j-1)&&dp[i-1][j]

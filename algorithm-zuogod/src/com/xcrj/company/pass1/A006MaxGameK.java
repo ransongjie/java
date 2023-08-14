@@ -25,6 +25,7 @@ public class A006MaxGameK {
     private static int process(int[]as,int k,int idx){
         int ans=0;
         if(idx!=as.length){
+            //idx~len的每一个字母都尝试放到idx处，全排列
             for (int i = idx; i < as.length; i++) {
                 swap(as,idx,i);
                 ans=Math.max(ans,process(as,k,idx+1));
@@ -48,9 +49,10 @@ public class A006MaxGameK {
         as[b]=tmp;
     }
 
-    //贪心，先让小值满足要求
+    //贪心，先让小值满足要求，成对
     public static int maxGameK2(int[]as,int k){
-        Arrays.sort(as);//
+        Arrays.sort(as);
+        //[l,r]窗口
         int l=0,r=0,ans=0,n=as.length;
         boolean[] isUsed=new boolean[n];
         while(r<n&&l<n){

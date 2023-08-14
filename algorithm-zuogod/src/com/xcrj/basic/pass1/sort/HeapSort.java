@@ -101,12 +101,13 @@ public class HeapSort {
     
 
     private static void heapSort(int[] as) {
+        //从0~as.length把大的放到前面去
         for (int i = 0; i < as.length; i++) {//i相当于 heapSize
             heapInsert2(as, i);
         }
 
         for (int i = as.length-1; i >=0; i--) {
-            swap(as, 0, i);
+            swap(as, 0, i);//大根堆，交换后正序
             heapfy(as, i);
         }
     }

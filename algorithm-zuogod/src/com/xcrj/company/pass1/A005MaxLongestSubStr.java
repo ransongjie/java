@@ -21,6 +21,12 @@ public class A005MaxLongestSubStr {
         int pre=1;//前1个字符往左推的最大长度
         asciis[cs[0]]=0;
 
+        /**
+         * 当前字符往左推的最大长度=
+         * min(
+         * 前1个字符往左推的最大长度+1
+         * ,与当前字符历史位置相关)
+         */
         for (int i = 1; i < cs.length; i++) {
             //两个条件
             int c1=i-asciis[cs[i]];//第i个字符上次出现的位置

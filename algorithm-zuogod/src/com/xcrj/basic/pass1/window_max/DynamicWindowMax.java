@@ -9,27 +9,27 @@ import java.util.List;
 //动态窗口内的最大值
 public class DynamicWindowMax {
     public static void main(String[] args) {
-        // int[]as={6,4,2,5,3};
-        // // windowMax(as, 4);
-        // List<Integer> ls=cp(as, 3);
-        // System.out.println(ls);
+         int[]as={6,1,1,1,5};
+         List<Integer> ls=windowMax(as, 3);
+//         List<Integer> ls=cp(as, 3);
+         System.out.println(ls);
 
-        int times=1000000;
-        int maxLen=100;
-        int maxV=100;
-        for (int i = 0; i < times; i++) {
-            Element e=getElement(maxLen, maxV);
-            List<Integer> ls1=cp(e.as, e.w);
-            List<Integer> ls2=windowMax(e.as, e.w);
-            if(ls1==null&&ls2==null) continue;
-            Integer[] rs1=ls1.toArray(new Integer[]{});//
-            Integer[] rs2=ls2.toArray(new Integer[]{});
-            if(!Arrays.equals(rs1, rs2)){
-                System.out.println("not good");
-                System.out.println(Arrays.toString(rs1));
-                System.out.println(Arrays.toString(rs2));
-            }
-        }
+//        int times=1000000;
+//        int maxLen=100;
+//        int maxV=100;
+//        for (int i = 0; i < times; i++) {
+//            Element e=getElement(maxLen, maxV);
+//            List<Integer> ls1=cp(e.as, e.w);
+//            List<Integer> ls2=windowMax(e.as, e.w);
+//            if(ls1==null&&ls2==null) continue;
+//            Integer[] rs1=ls1.toArray(new Integer[]{});//
+//            Integer[] rs2=ls2.toArray(new Integer[]{});
+//            if(!Arrays.equals(rs1, rs2)){
+//                System.out.println("not good");
+//                System.out.println(Arrays.toString(rs1));
+//                System.out.println(Arrays.toString(rs2));
+//            }
+//        }
     }
 
     public static List<Integer> windowMax(int[]as,int w) {
