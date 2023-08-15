@@ -22,9 +22,20 @@
 
 - hash
 
+# 区间
+
+- interval
+-
+
 # 一维dp
 
 - dp1
+- dp[i]
+
+# n维dp
+
+- dpn
+- dp[i][j]
 
 # 其它
 
