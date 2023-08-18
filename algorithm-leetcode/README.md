@@ -1,18 +1,18 @@
-# offer_special (剑指offer_专项突破版)
-[offer_special (剑指offer_专项突破版](https://leetcode.cn/studyplan/coding-interviews-special)
-|Intro|Class|More|
+# 介绍
+|包名|说明||
 |---|---|---|
-|Intro|Class|More|
-|Intro|Class|More|
-|Intro|Class|More|
-|只出现一次的数字|Solution004|数字只出现1次或3次|
-|单词长度的最大乘积|Solution005|有相同字符则长度为0|
-|数组中和为0的三个数|Solution007|所有和为0且不重复的三元组|
-|Intro|Class|More|
+|offer_special|剑指offer_专项突破版|`https://leetcode.cn/problem-list/e8X3pBZi/`|
+|interview150|面试经典 150 题|`https://leetcode.cn/studyplan/top-interview-150/`|
+|||
 
 # 技巧
-|名称|说明|题目|
-|---|---|---|
-|多路归并 多指针|类似二路归并||
-|并查集|findRoot union||
-|字典树|||
+
+|名称|题目|
+|---|---|
+|多路归并 多指针|heap/Solution02|
+|并查集|graph/Solution04|
+|字典树|dict_tree|
+|二维前缀和|divide_conquer/Solution02|
+
+# 注意
+1. 子数组和子串都是连续的
