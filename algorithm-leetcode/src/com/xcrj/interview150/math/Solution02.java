@@ -1,4 +1,4 @@
-package com.xcrj.interview150.number;
+package com.xcrj.interview150.math;
 
 /**
  * https://leetcode.cn/problems/powx-n

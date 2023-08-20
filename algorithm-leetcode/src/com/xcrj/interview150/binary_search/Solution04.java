@@ -39,4 +39,31 @@ public class Solution04 {
 
         return new int[]{first, last};
     }
+
+    public int[] searchRange2(int[] nums, int target) {
+        if(nums.length==0) return new int[]{-1, -1};
+
+        int n = nums.length, l = 0, r = n - 1, first, last;
+
+        // 先找到左边界
+        while (l < r) {
+            int mid = l + r >> 1;
+            if (nums[mid] >= target) r = mid;
+            else l = mid + 1;
+        }
+        if (nums[l] != target) return new int[]{-1, -1};
+        else first = l;
+
+        // 再找到右边界
+        r = n - 1;
+        while (l < r) {
+            int mid = l + r + 1 >> 1;
+            if (nums[mid] <= target) l = mid;
+            else r = mid - 1;
+        }
+        if (nums[r] != target) return new int[]{-1, -1};
+        else last = r;
+
+        return new int[]{first, last};
+    }
 }
