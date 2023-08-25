@@ -20,8 +20,8 @@ public class CPRandomP {
         n2.rand=n1;
         n3.rand=n5;
 
-        // NodeR cpHead=copy1(head);
-        NodeR cpHead=copy2(head);
+         NodeR cpHead=copy1(head);
+//        NodeR cpHead=copy2(head);
 
         NodeR q=cpHead;
         StringBuilder sb=new StringBuilder();
