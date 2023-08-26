@@ -1,4 +1,4 @@
-package com.xcrj.dp;
+package com.xcrj.dp.basic;
 
 /**
  * https://leetcode.cn/problems/integer-break/submissions/

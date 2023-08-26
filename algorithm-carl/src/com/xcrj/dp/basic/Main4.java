@@ -1,4 +1,4 @@
-package com.xcrj.dp;
+package com.xcrj.dp.basic;
 
 public class Main4 {
     /**

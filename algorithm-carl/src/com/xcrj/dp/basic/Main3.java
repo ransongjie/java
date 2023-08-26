@@ -1,4 +1,4 @@
-package com.xcrj.dp;
+package com.xcrj.dp.basic;
 
 public class Main3 {
     public static int uniquePaths(int m, int n) {
