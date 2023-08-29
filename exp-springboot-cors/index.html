@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsonp cors</title>
+    <script>
+        function show(data) {
+            var res = JSON.stringify(data)
+            document.querySelector("#output").textContent = res
+        }
+
+        function handleclick() {
+            // show({"code":200,"data":"xcrj"}), 回调函数show()
+            var url = "http://127.0.0.1:8080/cors/jsonp/007?callback=show&_t=123"
+            var script = document.createElement("script")
+            script.setAttribute("src", url)
+            script.onerror = null
+            document.getElementsByTagName("head")[0].appendChild(script)
+        }
+    </script>
+</head>
+<body>
+<div id="root">
+    <div class="box">
+        <input type="button" value="jsonp" onclick="handleclick()"/>
+    </div>
+    <div class="box">
+        <textarea id="output"></textarea>
+    </div>
+</div>
+
+</body>
+</html>
