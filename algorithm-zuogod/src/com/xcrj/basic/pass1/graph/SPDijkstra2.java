@@ -5,6 +5,48 @@ import java.util.Map;
 
 //改进堆 自定义堆 优化dijkstra
 public class SPDijkstra2 {
+    public static void main(String[] args) {
+        int[][] inss = {
+                { 0, 1, 4 },
+                { 0, 2, 6 },
+                { 0, 3, 6 },
+                { 3, 2, 2 },
+                { 1, 2, 1 },
+                { 1, 4, 7 },
+                { 3, 5, 5 },
+                { 2, 5, 4 },
+                { 5, 4, 1 },
+                { 5, 6, 8 },
+                { 4, 6, 6 },
+                { 2, 4, 6 }
+        };
+
+        Graph g = Convert.convert(inss);
+        for (Edge e : g.edges) {
+            System.out.println(e.from.val + ", " + e.to.val + ", " + e.weight);
+        }
+
+        Map<Node, Integer> distanceMap = dijkstra(g);
+        distanceMap.forEach((k, v) -> System.out.println(0 + ", " + k.val + "=" + v));
+    }
+    public static Map<Node, Integer> dijkstra(Graph g) {
+        Map<Node, Integer> distanceMap = new HashMap<>();
+        //
+        Node s = g.nodes.get(1);
+        NodeHeap nheap = new NodeHeap(g.nodes.size());
+        nheap.addOrUpdateOrIgnore(s, 0);
+        //
+        while (!nheap.isEmpty()) {
+            NodeRecord a = nheap.pop();
+            for (Edge e : a.node.edges) {
+                nheap.addOrUpdateOrIgnore(e.to, a.distance + e.weight);
+            }
+            distanceMap.put(a.node, a.distance);
+        }
+        //
+        return distanceMap;
+    }
+
     static class NodeRecord {
         Node node;
         int distance;
@@ -106,48 +148,7 @@ public class SPDijkstra2 {
             nodeIdxMap.put(nodes[idx2], idx1);
             Node tmp = nodes[idx1];
             nodes[idx1] = nodes[idx2];
-            nodes[idx1] = tmp;
+            nodes[idx2] = tmp;
         }
-    }
-
-    public static Map<Node, Integer> dijkstra(Graph g) {
-        Map<Node, Integer> distanceMap = new HashMap<>();
-        //
-        Node s = g.nodes.get(0);
-        NodeHeap nheap = new NodeHeap(g.nodes.size());
-        nheap.addOrUpdateOrIgnore(s, 0);
-        //
-        while (!nheap.isEmpty()) {
-            NodeRecord a = nheap.pop();
-            for (Edge e : a.node.edges) {
-                nheap.addOrUpdateOrIgnore(e.to, a.distance + e.weight);
-            }
-            distanceMap.put(a.node, a.distance);
-        }
-        //
-        return distanceMap;
-    }
-
-    public static void main(String[] args) {
-        int[][] inss = {
-                { 0, 1, 4 },
-                { 0, 2, 6 },
-                { 0, 3, 6 },
-                { 3, 2, 2 },
-                { 1, 2, 1 },
-                { 1, 4, 7 },
-                { 3, 5, 5 },
-                { 2, 5, 4 },
-                { 5, 4, 1 },
-                { 5, 6, 8 },
-                { 4, 6, 6 },
-                { 2, 4, 6 }
-        };
-        Graph g = Convert.convert(inss);
-        for (Edge e : g.edges) {
-            System.out.println(e.from.val + ", " + e.to.val + ", " + e.weight);
-        }
-        Map<Node, Integer> distanceMap = dijkstra(g);
-        distanceMap.forEach((k, v) -> System.out.println(0 + ", " + k.val + "=" + v));
     }
 }

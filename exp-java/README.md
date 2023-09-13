@@ -9,7 +9,7 @@ javac -d . Test.java
 java -classpath . com.xcrj.Test
 # 定位CPU飙高 进程PID
 top
-# 定位 线程PID
+# 定位 线程PID, -H 以线程视角查看进程信息
 top -H -p 进程PID
 # 线程PID转十六进制
 printf '0x%x\n' 线程PID
@@ -33,9 +33,10 @@ public class Test {
 
 # sync/synchronized的三种使用方式
 
-1. synchronized 方法 成员/方法
-2. synchronized 代码块 静态对象/普通对象 用的多
-3. synchronized 代码块 this/.class
+- synchronized 方法 成员方法，静态方法
+- synchronized 代码块 静态对象/普通对象
+- synchronized 代码块 this/.class
+- synchronized重点关注是否锁住了同1个对象
 
 # stop_thread_pool/安全的停止线程池
 
