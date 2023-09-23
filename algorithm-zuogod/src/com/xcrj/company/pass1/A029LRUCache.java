@@ -28,7 +28,9 @@ public class A029LRUCache {
      */
     static class MyCache<K,V>{
         final int capacity;
+        // 判断页面是否存在
         HashMap<K,Node<K,V>> keyNode;
+        // 最久为使用的页面在head，最近使用的页面（包括get和put）在tail
         NodeDoubleLinkedList<K,V> nodeList;
 
         MyCache(int capacity){

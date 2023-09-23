@@ -8,7 +8,8 @@ import java.util.UUID;
 
 public class Main {
     public static void main(String[] args) {
-        generate(300 * 10000);
+        generate(100 * 10000);
+//        generateBatch(30 * 10000);
     }
 
     private static String rand36Str() {
@@ -61,6 +62,46 @@ public class Main {
                     bos.write("\n".getBytes());
                 }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void generateBatch(int size) {
+        String head = "INSERT INTO researcher(`code`,`name`,`title`,`location`) VALUES\n";
+//        System.out.println(String.format(sql,IdWorker.getId()));
+        String path = "./test_slow_researcher.sql";
+        File file = new File(path);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        try (
+                FileOutputStream fos = new FileOutputStream(path);
+                BufferedOutputStream bos = new BufferedOutputStream(fos);
+        ) {
+            bos.write(head.getBytes());
+            for (int i = 0; i < size; i++) {
+                StringBuilder sb = new StringBuilder();
+                String code = rand36Str(1);
+                String name = rand36Str(1);
+                String title = rand36Str(2);
+                String location = rand36Str(3);
+                sb.append("(").append("'").append(code).append("'").append(",")
+                        .append("'").append(name).append("'").append(",")
+                        .append("'").append(title).append("'").append(",")
+                        .append("'").append(location).append("'").append(")");
+                if (size - 1 != i) {
+                    sb.append(",\n");
+                } else {
+                    sb.append(";");
+                }
+                bos.write(sb.toString().getBytes());
+            }
+            bos.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }

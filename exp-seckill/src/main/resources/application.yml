@@ -1,0 +1,11 @@
+spring:
+  redis:
+    host: 192.168.1.102
+    port: 31698
+    password: 19971026
+    database: 0
+#    lettuce:
+#      pool:
+#        max-idle: 16
+#        max-active: 32
+#        min-idle: 8
