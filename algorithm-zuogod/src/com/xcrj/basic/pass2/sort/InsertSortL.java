@@ -1,3 +1,4 @@
+package com.xcrj.basic.pass2.sort;
 /**
  * 插入排序链表实现
  */
@@ -39,5 +40,13 @@ public class InsertSortL {
             }
         }
         return dummy.next;
+    }
+}
+
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int val){
+        this.val=val;
     }
 }

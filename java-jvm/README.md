@@ -128,4 +128,23 @@ java -XX:+UseG1GC -XX:+PrintCommandLineFlags -classpath 'src/com/xcrj/test/' com
 # -XX:+UseZGC
 java -XX:+UseZGC -XX:+PrintCommandLineFlags -classpath 'src/com/xcrj/test/' com.xcrj.test.Test1
 ```
+## jdk21
+```shell
+javac -d 'src/com/xcrj/test/' -encoding 'UTF-8' 'src/com/xcrj/test/Test1.java'
+
+# -XX:+UseG1GC 默认
+java -XX:+PrintCommandLineFlags -classpath 'src/com/xcrj/test/' com.xcrj.test.Test1
+
+# 不支持
+java -XX:+UseConcMarkSweepGC -XX:+PrintCommandLineFlags -classpath 'src/com/xcrj/test/' com.xcrj.test.Test1
+
+# -XX:+UnlockExperimentalVMOptions -XX:+UseEpsilonGC
+java -XX:+UnlockExperimentalVMOptions -XX:+UseEpsilonGC -XX:+PrintCommandLineFlags -classpath 'src/com/xcrj/test/' com.xcrj.test.Test1
+
+# -XX:+UseG1GC
+java -XX:+UseG1GC -XX:+PrintCommandLineFlags -classpath 'src/com/xcrj/test/' com.xcrj.test.Test1
+
+# -XX:+UseZGC
+java -XX:+UseZGC -XX:+PrintCommandLineFlags -classpath 'src/com/xcrj/test/' com.xcrj.test.Test1
+```
 # 调整Runetime (运行时数据区)

@@ -16,19 +16,10 @@ public class ProjectMaxProfit{
         int maxProfit=maxProfit(1, 4, cps);
         System.out.println(maxProfit);
     }
-    static class CostProfit{
-        int cost;
-        int profit;
-        public CostProfit(int cost,int profit) {
-            this.cost=cost;
-            this.profit=profit;
-        }
-    }
     /**
      * @param m 启动资金
      * @param k 项目上限
-     * @param capitals 项目花费
-     * @param profits 项目成本
+     * @param cps 项目花费 项目成本
      * @return 最大收益
      */
     public static int maxProfit(int m,int k,CostProfit[] cps) {
@@ -52,5 +43,14 @@ public class ProjectMaxProfit{
         }
         //
         return r;
+    }
+}
+
+class CostProfit{
+    int cost;
+    int profit;
+    public CostProfit(int cost,int profit) {
+        this.cost=cost;
+        this.profit=profit;
     }
 }
