@@ -9,10 +9,10 @@
 - optional: null处理
 
 # 函数式编程
-方法作为入参，函数式接口 作为方法入参，lambda表达式作函数式接口中抽象方法的方法体
-func_interface: 函数式接口，interface上标注@FunctionalInterface
-lambda: lambda表达式，作为 函数式接口 中 抽象方法 的方法体
-func_reference: 方法引用
+- 方法作为入参，函数式接口 作为方法入参，lambda表达式作函数式接口中抽象方法的方法体
+- func_interface: 函数式接口，interface上标注@FunctionalInterface
+- lambda: lambda表达式，作为 函数式接口 中 抽象方法 的方法体
+- func_reference: 方法引用
 
 函数式接口，lambda表达式，lambda表达式所在类
 - lambda表达式是 函数式接口 的实现类
