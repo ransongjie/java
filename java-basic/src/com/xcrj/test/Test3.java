@@ -24,7 +24,7 @@ class Ball implements Rollable {
     }
     public void play() {
         //编译报错，不能对final变量赋值
-        ball = new Ball("Football");
-        System.out.println(ball.getName());
+//        ball = new Ball("Football");
+//        System.out.println(ball.getName());
     }
 }

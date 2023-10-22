@@ -7,7 +7,7 @@ public interface Main01 {
     /**
      * 贪心
      * 寻找插入的位置
-     * 
+     *
      * @param as
      * @param target
      * @return
@@ -38,7 +38,7 @@ public interface Main01 {
             }
         }
         // 二分查找的null叶子结点，+1因为是闭区间
-        return right + 1;
+        return r + 1;
     }
 
     static int searchInsert2(int[] as, int target) {
@@ -55,6 +55,6 @@ public interface Main01 {
             }
         }
         // 二分查找的null叶子结点
-        return right;
+        return r;
     }
 }

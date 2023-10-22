@@ -6,7 +6,7 @@ import java.util.Stack;
  * 迭代遍历
  */
 public class IterationOrder {
-    public void preOrder(BTreeNode node) {
+    void preOrder(BTreeNode node) {
         Stack<BTreeNode> stack = new Stack<>();
         stack.push(node);
         while (!stack.isEmpty()) {
@@ -18,7 +18,7 @@ public class IterationOrder {
         }
     }
 
-    public void inOrder(BTreeNode node) {
+    void inOrder(BTreeNode node) {
         Stack<BTreeNode> stack = new Stack<>();
         BTreeNode cur = node;
         while (cur != null && !stack.isEmpty()) {
@@ -36,7 +36,7 @@ public class IterationOrder {
     }
 
     //根左右》根右左》左右根
-    public void lstOrder(BTreeNode node) {
+    void lstOrder(BTreeNode node) {
         // 两个栈
         Stack<BTreeNode> stack = new Stack<>();
         Stack<BTreeNode> stack2 = new Stack<>();
@@ -44,7 +44,7 @@ public class IterationOrder {
         while (!stack.isEmpty()) {
             BTreeNode n = stack.pop();
             stack2.push(n);
-            // 先右再左
+            // 先左再右
             if (n.left != null) stack.push(n.left);
             if (n.right != null) stack.push(n.right);
         }

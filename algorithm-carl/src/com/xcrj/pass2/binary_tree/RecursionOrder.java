@@ -1,26 +1,24 @@
-package com.xcrj.binary_tree;
+package com.xcrj.pass2.binary_tree;
 
 /**
- * 递归遍历
- * 递归
- * 出口 入参 出参 函数体
+ * 递归 前序遍历 中序遍历 后续遍历
  */
 public class RecursionOrder {
-     void preOrder(BTreeNode node) {
+    static void preOrder(Node node) {
         if (node == null) return;
         System.out.println(node.val);
         preOrder(node.left);
         preOrder(node.right);
     }
 
-     void inOrder(BTreeNode node) {
+    static void inOrder(Node node) {
         if (node == null) return;
         preOrder(node.left);
         System.out.println(node.val);
         preOrder(node.right);
     }
 
-     void lstOrder(BTreeNode node) {
+    static void postOrder(Node node) {
         if (node == null) return;
         preOrder(node.left);
         preOrder(node.right);

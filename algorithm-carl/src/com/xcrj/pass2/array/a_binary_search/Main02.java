@@ -1,11 +1,12 @@
 package com.xcrj.pass2.array.a_binary_search;
 
 /**
+ * https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/
+ * 在排序数组中查找元素的第一个和最后一个位置
  * 有序数组中等于target的子数组的左右边界
  */
 public class Main02 {
     /**
-     * 
      * @param nums
      * @param target
      * @return target leftBorder rightBorder
@@ -14,15 +15,14 @@ public class Main02 {
         int leftBorder = leftBorder(nums, target);
         int rightBorder = rightBorder(nums, target);
         if (leftBorder == -2 || rightBorder == -2)
-            return new int[] { -1, -1 };
+            return new int[]{-1, -1};
         // 至少有1个元素。左右边界都往中间走1步。+1 因为leftBorder=middle-1，-1 因为rightBorder=middle+1
         if (rightBorder - leftBorder > 1)
-            return new int[] { leftBorder + 1, rightBorder - 1 };
-        return new int[] { -1, -1 };
+            return new int[]{leftBorder + 1, rightBorder - 1};
+        return new int[]{-1, -1};
     }
 
     /**
-     * 
      * @param as
      * @return 左边界 或 -2
      */
@@ -41,7 +41,6 @@ public class Main02 {
     }
 
     /**
-     * 
      * @param as
      * @return 左边界 或 -2
      */
@@ -51,12 +50,12 @@ public class Main02 {
             int mid = (l + r) >> 1;
             if (as[mid] <= target) {
                 l = mid + 1;
-                rightBorder = r;// 往右边移动确定右边界
+                rightBorder = l;// 往右边移动确定右边界
             } else {
                 r = mid - 1;
             }
         }
+
         return rightBorder;
     }
-
 }
