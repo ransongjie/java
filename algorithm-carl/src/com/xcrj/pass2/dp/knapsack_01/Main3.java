@@ -8,6 +8,7 @@ public class Main3 {
     /**
      * 尽量让石头分成重量相同的两堆，相撞之后剩下的石头最小，0-1背包问题
      * 转化为0-1背包问题
+     * 物品=stones元素
      * bagSize=sum/2
      * weight=stones
      * value=stones
@@ -21,7 +22,7 @@ public class Main3 {
                 stones) {
             sum += stone;
         }
-        // 背包
+        // 01背包问题
         int bagSize = sum / 2;
         int[] weight = stones;
         int[] value = stones;

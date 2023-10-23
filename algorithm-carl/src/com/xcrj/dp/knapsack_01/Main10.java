@@ -69,10 +69,10 @@ public class Main10 {
 
         // 打印dp数组
         // for(int i = 0; i < nums.length; i++) {
-        //     for(int j = 0; j <= left; j++) {
-        //         System.out.print(dp[i][j] + " ");
-        //     }
-        //     System.out.println("");
+        // for(int j = 0; j <= left; j++) {
+        // System.out.print(dp[i][j] + " ");
+        // }
+        // System.out.println("");
         // }
 
         return dp[nums.length - 1][left];
@@ -87,7 +87,8 @@ public class Main10 {
         /**
          * 问题转换
          * - 一定有 left组合 - right组合 = target, right可以为0
-         * - left - (sum - left) = target 推导出 tgt=left = (target + sum)/2 ，装满容量为 left 的背包，有几种方法
+         * - left - (sum - left) = target 推导出 tgt=left = (target + sum)/2 ，装满容量为 left
+         * 的背包，有几种方法
          * 背包：tgt
          * 物品：nums中的元素值
          * - 重量：nums中的元素值
@@ -99,9 +100,11 @@ public class Main10 {
         for (int num : nums) {
             sum += num;
         }
-        if (Math.abs(target) > sum) return 0;
+        if (Math.abs(target) > sum)
+            return 0;
         // (target + sum)/2是小数，从nums中选不能组合成小数
-        if (((target + sum) & 1) == 1) return 0;
+        if (((target + sum) & 1) == 1)
+            return 0;
         int tgt = ((target + sum) >> 1);
         // ！！！保证大于0
         tgt = tgt < 0 ? -tgt : tgt;
