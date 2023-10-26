@@ -40,7 +40,7 @@ public class Main2 {
                 }
             }
         }
-        return dp[coins.length][amount];
+        return dp[coins.length-1][amount];
     }
 
 }
