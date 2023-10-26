@@ -7,6 +7,7 @@ package com.xcrj.pass2.dp.knapsack_01;
 public class Main2 {
     /**
      * 转化为0-1背包问题
+     * 物品=nums元素
      * bagSize=sum/2
      * weight=nums
      * value=nums
@@ -21,7 +22,7 @@ public class Main2 {
         }
         // 奇数无法构成等和子集
         if ((sum & 1) == 1) return false;
-        // 背包
+        // 01背包问题
         int bagSize = sum / 2;
         int[] weight = nums;
         int[] value = nums;
