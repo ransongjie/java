@@ -6,7 +6,7 @@ import java.util.Set;
 
 /**
  * https://leetcode.cn/problems/word-break/submissions/
- * 给定一个非空字符串 s 和一个包含非空单词的列表 wordDict，判定 s 是否可以被空格拆分为一个或多个在字典中出现的单词。
+ * 给定一个非空字符串 s 和一个包含非空单词的列表 wordDict，判定 s 是否可以被拆分为一个或多个在字典中出现的单词。
  * <p>
  * bagSize: s.len
  * 物品重量：wordDict中的单词

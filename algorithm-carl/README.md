@@ -14,10 +14,10 @@ dp[i], 长度为i，以nums[i-1]结尾
 ```text
 01背包问题：每种物品有且只有一个&&每个物品只需要考虑选与不选两种情况
 遍历顺序：先物品再背包 或 先背包再物品 都可以
-求最大价值状态转移：dp[j] = Math.max(dp[j], value[i] + dp[j - weight[i]]);
-求最大价值结果：return dp[bagSize];
-求最多方法状态转移：dp[j] += dp[j - weight[i]];
-求最多方法结果：return dp[bagSize];
+求最大价值/方法状态转移：dp[j] = Math.max(dp[j], value[i] + dp[j - weight[i]]);
+求最大价值/方法结果：return dp[bagSize];
+求总方法数状态转移：dp[j] += dp[j - weight[i]];
+求总方法数结果：return dp[bagSize];
 
 int bagSize  //背包大小
 int[] weight //物品重量数组
@@ -29,10 +29,10 @@ int[] dp = new int[bagSize + 1];  //dp数组
 ```text
 complete背包问题：每种物品都有无限件
 遍历顺序：先物品再背包（组合问题）；先背包再物品（排列问题）
-求最大价值状态转移：dp[j] = Math.max(dp[j], value[i] + dp[j - weight[i]]);
-求最大价值结果：int max = 0;for (int i = 0; i < bagSize + 1; i++) {max = Math.max(max, dp[i]);} return max;
-求最多方法状态转移：dp[j] += dp[j - weight[i]];
-求最多方法结果：return dp[bagSize];
+求最大价值/方法状态转移：dp[j] = Math.max(dp[j], value[i] + dp[j - weight[i]]);
+求最大价值/方法结果：int max = 0;for (int i = 0; i < bagSize + 1; i++) {max = Math.max(max, dp[i]);} return max;
+求总方法数状态转移：dp[j] += dp[j - weight[i]];
+求总方法数方法结果：return dp[bagSize];
 ```
 ## str2
 ```text
