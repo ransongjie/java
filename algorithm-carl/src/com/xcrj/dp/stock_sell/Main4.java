@@ -11,7 +11,7 @@ public class Main4 {
         // dp[i][k][1]=持有股票的最大收益
         int[][][] dp = new int[n][k + 1][2];
 
-        for (int i = 0; i < k + 1; i++) {
+        for (int i = 1; i < k + 1; i++) {
             dp[0][i][1] = -prices[0];
         }
 

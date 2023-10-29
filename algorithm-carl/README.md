@@ -34,6 +34,15 @@ complete背包问题：每种物品都有无限件
 求总方法数状态转移：dp[j] += dp[j - weight[i]];
 求总方法数方法结果：return dp[bagSize];
 ```
+## knapsack_multiple
+```text
+multiple背包问题：每个物品都有有限件
+转换为01背包去做
+```
+# stock_sell
+```text
+状态机转换
+```
 ## str2
 ```text
 int[][] dp = new int[s.length() + 1][t.length() + 1];

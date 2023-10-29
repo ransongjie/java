@@ -12,13 +12,14 @@ package com.xcrj.dp.stock_sell;
 public class Main1 {
     // 贪心
     public int maxProfit(int[] prices) {
-        int min = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE;
+        int low = Integer.MAX_VALUE;
+        int profit = 0;
         for (int i = 0; i < prices.length; i++) {
-            min = Math.min(min, prices[i]);
-            max = Math.min(max, prices[i]);
+            low = Math.min(low, prices[i]);
+            //在low基础上求最大利润
+            profit = Math.max(profit, prices[i]-low);
         }
-        return max - min;
+        return profit;
     }
 
     public int maxProfit1(int[] prices) {
