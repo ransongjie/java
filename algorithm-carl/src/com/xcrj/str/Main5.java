@@ -30,6 +30,11 @@ public class Main5 {
     }
 
     /**
+     * 部分匹配表
+     * 长度为 0 的子串，前后缀匹配长度=-1
+     * 长度为 1 的子串，前后缀匹配长度=-1
+     * 长度为 i 的子串，前后缀匹配长度 最大为 i-1
+     *
      * 获取部分匹配表
      * next[i]=j, 长度为i+1的字符串，最长相等前后缀字符串长度j+1，的部分匹配位置j
      *
@@ -39,7 +44,7 @@ public class Main5 {
     public int[] getNext(String needle) {
         char[] cs = needle.toCharArray();
         // i, 长度为i+1的前缀串最后1个字符
-        // j, 长度为i+1的后缀串最后1个字符
+        // j, 长度为j+1的后缀串最后1个字符
         int i = 0, j = -1, n = needle.length();
         int[] next = new int[n];
         // 长度为0+1字符串，最长相等前后缀字符串长度
@@ -50,7 +55,7 @@ public class Main5 {
             while (j >= 0 && cs[i] != cs[j + 1]) {// j=0，最多从头开始比较
                 j = next[j];// 部分匹配，继续比较
             }
-            // 前后缀末尾字符相等
+            // 后缀末尾字符==前缀末尾字符
             if (cs[i] == cs[j + 1]) {
                 j++;// 前后缀字符串都+1
             }

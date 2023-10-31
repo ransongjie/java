@@ -2,20 +2,20 @@ package com.xcrj.basic.pass2.str;
 
 /**
  * Manacher 求回文串的最大长度
- * 1. i在maxC+maxR内
+ * [..., i', maxC, i, ...]
+ * 1. i在maxC+maxR内：扩展基础 r(i)=min{(maxC+maxR-i), maxC-(i-maxC)}
  * r=i关于maxC的对称点i'的回文半径r(i')
- * - r(i')在maxR内，r=r(i')=rs[maxC-(i-maxC)], 外扩将失败
- * - r(i')在maxR外，r=(maxC+maxR-i), 外扩将失败
- * - r(i')刚好压线，r=(maxC+maxR-i)=rs[maxC-(i-maxC)], 外扩可能成功
- * 2. i不在maxC+maxR内
- * - r=1
+ * - r(i')在maxR内，r(i)=r(i')=rs[maxC-(i-maxC)], 外扩将失败
+ * - r(i')在maxR外，r(i)=(maxC+maxR-i), 外扩将失败 (若可以外扩则r(i')不在maxR外)
+ * - r(i')刚好压线，r(i)=(maxC+maxR-i)=rs[maxC-(i-maxC)], 外扩可能成功
+ * 2. i不在maxC+maxR内(外或压线)：扩展基础 r(i)=1
  * 步骤
  * 1. 转换字符串
  * 2. 历史最大回文半径，历史最大回文半径的回文中心，每个字符的回文半径
  * 3. i的扩展基础，继续扩展i
  * 4. 更新历史最大回文半径，历史最大回文半径的回文中心
- * - i在maxC+maxR内
- * - i不在maxC+maxR内
+ * - i在maxC+maxR内，扩展基础 r(i)=min{(maxC+maxR-i), maxC-(i-maxC)}
+ * - i不在maxC+maxR内，扩展基础 r(i)=1
  */
 public class Manacher {
     public static void main(String[] args) {
