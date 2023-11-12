@@ -13,6 +13,7 @@
 |net/bio|BIO|
 |net/nio|NIO|
 |reflect|reflect|
+|dserialized|序列化/反序列化|
 |test|test|
 
 data_type
@@ -26,3 +27,7 @@ generic
 error
 - 程序退出，正常退出 return，异常退出 throw 异常 未catch
 - 异常处理，catch异常 让程序继续运行
+
+dserialized
+- 序列化: ByteArrayOutputStream, ObjectOutputStream
+- 反序列化: ByteArrayInputStream, ObjectInputStream
