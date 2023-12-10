@@ -1,3 +1,19 @@
+# spin_lock自旋锁
+SpinLock 可重入锁
+
+TricketLock 公平锁 
+- 缺点：serviceNum多处理缓存同步次数频繁
+
+CLHLock 公平锁 
+- 自旋：在前继结点locked字段上自旋，等待前继结点释放锁（pre.locked=true）
+- 获取锁：设置locked=true, 前面结点释放锁, 后继结点获取锁
+- 释放锁：设置locked=false, 从链表中移除当前结点
+
+MCSLock 公平锁 
+- 自旋：在当前结点locked字段上自旋，等待前继结点通知后继结点获取锁（cur.locked=true）
+- 获取锁：设置当前结点locked=false，自旋等待前继结点通知后继结点获取锁（设置后继结点locked=true）
+- 释放锁：设置后继结点locked=true，设置当前结点next=null
+
 # cpu/由java导致的CPU飙高如何定位
 
 ```shell
@@ -66,5 +82,3 @@ threadPool.shutdownNow()
 ```
 
 # stop_thread/安全的停止线程
-
-# chaos

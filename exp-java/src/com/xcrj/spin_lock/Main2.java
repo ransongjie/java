@@ -3,6 +3,7 @@ package com.xcrj.spin_lock;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.Lock;
 /**
  * 参考
  * https://www.cnblogs.com/scholar-hwg/p/12172154.html
@@ -12,9 +13,9 @@ public class Main2 {
 }
 
 /**
- * 可重入锁
+ * 可重入
  */
-class SpinLock4 extends ReentrantLock {
+class SpinLock extends Lock {
     private AtomicReference<Thread> owner = new AtomicReference<>();
 
     private int count = 0;// 记录加锁次数
@@ -47,9 +48,9 @@ class SpinLock4 extends ReentrantLock {
 
 /**
  * 公平锁
- * 服务号与排队号相等则进行服务
+ * 服务号 排队号
  */
-class SpinLock5 extends ReentrantLock {
+class TicketLock extends Lock {
     // 服务到第n号
     private AtomicInteger serviceNum = new AtomicInteger(0);
     // 排队到第n号
@@ -76,7 +77,11 @@ class SpinLock5 extends ReentrantLock {
 }
 
 /**
- * 基于链表的可扩展、高性能、公平的自旋锁，申请线程只在本地变量上自旋，它不断轮询前驱的状态，如果发现前驱释放了锁就结束自旋。
+ * 公平锁
+ * CLHLock 轮询前驱结点状态
+ * 
+ * 基于链表的可扩展、高性能、公平的自旋锁，
+ * 申请线程只在本地变量上自旋，它不断轮询前驱的状态，如果发现前驱释放了锁就结束自旋。
  */
 class CLHLock extends ReentrantLock {
 
@@ -127,9 +132,13 @@ class CLHLock extends ReentrantLock {
 }
 
 /**
- * 基于链表的可扩展、高性能、公平的自旋锁，申请线程只在本地变量上自旋，直接前驱负责通知其结束自旋，从而极大地减少了不必要的处理器缓存同步的次数，降低了总线和内存的开销。
+ * 公平锁
+ * MCSLock 前驱结点通知后继结点结束自旋
+ * 基于链表的可扩展、高性能、公平的自旋锁，
+ * 申请线程只在本地变量上自旋，直接前驱负责通知其结束自旋，
+ * 从而极大地减少了不必要的处理器缓存同步的次数，降低了总线和内存的开销。
  */
-class MCSLock extends ReentrantLock {
+class MCSLock extends Lock {
     private AtomicReference<QNode> tail;
     private ThreadLocal<QNode> myNode;
 
