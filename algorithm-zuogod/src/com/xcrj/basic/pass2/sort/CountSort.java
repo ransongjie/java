@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class CountSort {
     public static void main(String[] args) {
         int[]as={20,45,13};
-        int[] cnts=countSort(as);
+        int[] cnts=countSort(as);// 数组下标作年龄
         for (int i = 0; i < cnts.length; i++) {
             if(cnts[i]!=0){
                 System.out.println(i+": "+cnts[i]);

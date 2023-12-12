@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 /**
  * 小和问题
- * 左侧比我小的数的和 转化为 右侧比我大数的个数*我
+ * 左侧比我小的数的和 = 右边大于我的数的个数*我
+ * +法变*法
  */
 public class MergeLSum {
     public static void main(String[] args) {

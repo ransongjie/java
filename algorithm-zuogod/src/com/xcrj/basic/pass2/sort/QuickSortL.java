@@ -16,34 +16,35 @@ public class QuickSortL {
         if (begin == null || end == null || begin == end)
             return begin;
 
-        //
-        ListNode l = begin;
-        ListNode r = begin.next;
+        //左边界
+        ListNode lb = begin;
+        ListNode pi = begin.next;
 
-        // l结点值作轴值
-        int midVal = l.val;
+        // lb结点值作轴值
+        int pivotVal = lb.val;
 
-        // r从l.next到end，将<midVal的结点的值交换，swap(l,r)。l是<midVal的值的左边界
-        while (r != end.next && r != null) {
+        // pi从l.next到end，将<pivotVal的结点的值交换，swap(l,r)。l是<pivotVal的值的左边界
+        while (pi != end.next && pi != null) {
             // 轴值 右侧的值要大于左侧的值
-            if (r.val < midVal) {
-                l = l.next;
-                if (l != r)
-                    swap(l, r);
+            if (pi.val < pivotVal) {
+                lb = lb.next;
+                if (lb != pi)
+                    swap(lb, pi);
             }
-            r = r.next;
+            pi = pi.next;
         }
 
-        if (begin != l)
-            swap(begin, r);
+        if (begin != lb)
+            swap(begin, pi);
 
-        // 递归
-        quickSort(begin, l);
-        quickSort(l.next, end);
+        // 确定轴值后继续递归
+        quickSort(begin, lb);
+        quickSort(lb.next, end);
 
         return begin;
     }
 
+    // 交换值
     private static void swap(ListNode p, ListNode q) {
         int tmp = p.val;
         p.val = q.val;

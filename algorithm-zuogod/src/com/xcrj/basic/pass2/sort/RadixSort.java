@@ -46,14 +46,19 @@ public class RadixSort {
             }
         }
 
+        // 从低到高，从右往左
         //依次处理每个数的第0位，第1位，第2位
         for (int i = 0; i < maxK; i++) {
+            // 所有数第i位是v的共c个
             int[]cnts=new int[10];//第i位为idx的数的数量
             for (int a : as) {
                 int v=getiV(a, i);
                 cnts[v]++;
             }
 
+            // 第i位是1的有a个，占用0~a-1的help
+            // 第i位是2的有b个，占用a~a+b-1的help
+            // 第i位是9的有m个，占用b~a+b+c-1的help
             //累加, 第i位>=idx的数的数量
             for (int j = 1; j < cnts.length; j++) {
                 cnts[j]+=cnts[j-1];

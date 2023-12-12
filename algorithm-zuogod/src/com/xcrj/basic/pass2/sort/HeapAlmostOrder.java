@@ -18,13 +18,14 @@ public class HeapAlmostOrder {
         PriorityQueue<Integer> pque=new PriorityQueue<>();
         int j=0;
         for (int i = 0; i < as.length; i++) {
+            // 大小为k的堆
             if(i<k) pque.offer(as[i]);
             else{
                 pque.offer(as[i]);
                 as[j++]=pque.poll();
             }
         }
-        //
+        
         while(!pque.isEmpty()){
             as[j++]=pque.poll();
         }

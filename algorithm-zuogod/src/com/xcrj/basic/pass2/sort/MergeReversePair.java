@@ -3,7 +3,7 @@ package com.xcrj.basic.pass2.sort;
 import java.util.Arrays;
 
 /**
- * 逆序对
+ * 逆序对，比我小的数的个数
  * 右边有多少数比当前数小，求数量
  */
 public class MergeReversePair {
