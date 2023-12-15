@@ -3,6 +3,8 @@ package com.xcrj.pointer2;
 /**
  * https://leetcode.cn/problems/reverse-words-in-a-string/
  * 反转字符串中的单词
+ * s = "the sky is blue" 》"blue is sky the"
+ * 先翻转字符串，再翻转单词
  */
 public class Main3 {
     /**

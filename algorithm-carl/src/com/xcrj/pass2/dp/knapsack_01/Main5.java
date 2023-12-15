@@ -6,10 +6,11 @@ package com.xcrj.pass2.dp.knapsack_01;
  */
 public class Main5 {
     /**
+     * 二维01背包问题
      * 转换为01背包问题
      * 物品=字符串
-     * bagSize=
-     * weight=0的个数和1的个数
+     * bagSize=[0字符的数量m+1][1字符的数量+1]
+     * weight=0的个数，1的个数
      * value=weight
      * @param strs
      * @param m    0的数量
@@ -18,7 +19,7 @@ public class Main5 {
      */
     public int findMaxForm(String[] strs, int m, int n) {
         // dp数组
-        // dp[i][j]=含有i个0和j个1的最大集合（含有字符串的数量最多）
+        // dp[i][j]=含有i个0和j个1的最大集合（这个集合含有最多的字符串，集合中字符串的数量最多）
         int[][] dp = new int[m + 1][n + 1];
 
         int num0, num1;

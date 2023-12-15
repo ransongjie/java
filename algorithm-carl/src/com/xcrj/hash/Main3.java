@@ -20,6 +20,7 @@ public class Main3 {
         Set<Integer> set = new HashSet<>();
         while (true) {
             int sum = 0;
+            // sum+=个位数^2
             while (n != 0) {
                 int a = n % 10;//求个位
                 sum += a * a;

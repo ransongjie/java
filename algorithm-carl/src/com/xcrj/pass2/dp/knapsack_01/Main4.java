@@ -3,6 +3,7 @@ package com.xcrj.pass2.dp.knapsack_01;
 /**
  * https://leetcode.cn/problems/target-sum/submissions/
  * 494. 目标和
+ * nums[]数组元素前添加+或-，再求和，求target
  */
 public class Main4 {
 
@@ -23,7 +24,9 @@ public class Main4 {
         // nums中元素全负或正，都不能凑成target
         if (Math.abs(target) > sum)
             return 0;
+        // left(num前添加+元素之和)-(right添加-号元素之和)=target
         // left=(sum+target)/2 && left是正整数
+        // (sum + target)必须是2的倍数，即偶数
         if (((sum + target) & 1) == 1)
             return 0;
         // 01背包问题

@@ -6,6 +6,7 @@ package com.xcrj.array.d_spiral_arr;
  */
 public class Main0 {
     public int[][] generateMatrix(int n) {
+        // start和loop是关键变量，start控制行列的开始位置，loop控制第几层循环
         int start = 0, loop = 0, v = 1, col, row;//控制左边界，控制右边界，左闭右开，变量控制
         int[][] ans = new int[n][n];
         while (loop < n / 2) {

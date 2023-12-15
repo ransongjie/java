@@ -6,13 +6,14 @@ package com.xcrj.pass2.dp.knapsack_01;
  */
 public class Main3 {
     /**
-     * 尽量让石头分成重量相同的两堆，相撞之后剩下的石头最小，0-1背包问题
+     * 尽量让石头分成重量相同的两堆，相撞之后剩下的石头最小
      * 转化为0-1背包问题
      * 物品=stones元素
      * bagSize=sum/2
      * weight=stones
      * value=stones
-     *
+     * 
+     * sum/2承重下的最大价值(重量)
      * @param stones
      * @return
      */

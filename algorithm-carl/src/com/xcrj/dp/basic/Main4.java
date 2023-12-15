@@ -12,7 +12,7 @@ public class Main4 {
      */
     public int uniquePathsWithObstacles(int[][] ass) {
         int m = ass.length, n = ass[0].length;
-        // 起点重点有障碍
+        // 起点终点有障碍
         if (ass[0][0] != 0 || ass[m - 1][n - 1] != 0) return 0;
 
         // dp数组

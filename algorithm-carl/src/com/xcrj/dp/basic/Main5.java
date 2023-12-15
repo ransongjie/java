@@ -2,7 +2,8 @@ package com.xcrj.dp.basic;
 
 /**
  * https://leetcode.cn/problems/integer-break/submissions/
- * 整数拆分
+ * 整数拆分，拆成多个数之和的最大乘积
+ * 2，拆成 1+1=2, 0+2=2, 最大乘积 1*1=1
  */
 public class Main5 {
     public int integerBreak(int n) {
@@ -15,8 +16,7 @@ public class Main5 {
         // 状态转移
         for (int i = 3; i <= n; i++) {
             for (int j = 1; j <= i - j; j++) {// j=0，乘积一定为0
-                // 拆成2个数相乘
-                // 拆成多个数相乘
+                // max(拆成2个数相乘, 拆成多个数相乘)
                 dp[i] = Math.max(dp[i], Math.max(j * (i - j), j * dp[i - j]));
             }
         }

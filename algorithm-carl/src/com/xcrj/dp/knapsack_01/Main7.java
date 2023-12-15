@@ -28,7 +28,7 @@ public class Main7 {
         for (int i = 0; i < n; i++) {
             dp[i][0] = 0;
         }
-        // 只有1件物品
+        // 只有第0件物品
         for (int i = weight[0]; i < bagSize + 1; i++) {
             dp[0][i] = value[0];
         }
@@ -59,7 +59,7 @@ public class Main7 {
         int n = weight.length;
         // dp数组
         int[] dp = new int[bagSize + 1];
-        // 初始状态
+        // 初始状态，只有第0件物品
         for (int i = weight[0]; i < bagSize + 1; i++) {
             dp[i] = value[0];
         }

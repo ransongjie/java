@@ -19,11 +19,12 @@ public class Main2 {
         char[] cs = str.toCharArray();
         int fs = s.length() - 1, ss = cs.length - 1;
         while (fs >= 0) {
+            // 原字符串是空格，操作cs[]数组
             if (s.charAt(fs) == ' ') {
                 cs[ss--] = '0';
                 cs[ss--] = '2';
                 cs[ss] = '%';
-            } else {
+            } else {// 复制
                 cs[ss] = s.charAt(fs);
             }
             fs--;

@@ -5,6 +5,7 @@ package com.xcrj.array.b_rm_element;
  * 移除元素
  */
 public class Main0 {
+    // 边界指针，遍历指针
     public int removeElement(int[] nums, int val) {
         int i = 0, j = 0;//i是边界，j负责遍历
         for (; j < nums.length; j++) {

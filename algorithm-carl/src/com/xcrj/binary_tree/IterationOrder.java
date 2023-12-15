@@ -6,6 +6,7 @@ import java.util.Stack;
  * 迭代遍历
  */
 public class IterationOrder {
+    // 根右左》根左右
     void preOrder(BTreeNode node) {
         Stack<BTreeNode> stack = new Stack<>();
         stack.push(node);

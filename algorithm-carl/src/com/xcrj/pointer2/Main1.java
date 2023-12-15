@@ -7,6 +7,7 @@ package com.xcrj.pointer2;
 public class Main1 {
     public void reverseString(char[] s) {
         int n = s.length, l = 0, r = n - 1;
+        // 双指针靠近
         while (l < r) {
             // 异或交换
             s[l] ^= s[r];

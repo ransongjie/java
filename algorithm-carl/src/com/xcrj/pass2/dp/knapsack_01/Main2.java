@@ -3,6 +3,9 @@ package com.xcrj.pass2.dp.knapsack_01;
 /**
  * https://leetcode.cn/problems/partition-equal-subset-sum/
  * 分割等和子集
+ * 输入：nums = [1,5,11,5]
+ * 输出：true
+ * 解释：数组可以分割成 [1, 5, 5] 和 [11]
  */
 public class Main2 {
     /**
@@ -11,7 +14,8 @@ public class Main2 {
      * bagSize=sum/2
      * weight=nums
      * value=nums
-     *
+     * 
+     * 选择的元素之和=sum/2》选择的物品重量和=总价值(重量)/2=sum/2》找到分割等和子集
      * @param nums
      * @return
      */
@@ -27,7 +31,7 @@ public class Main2 {
         int[] weight = nums;
         int[] value = nums;
         int n = weight.length;
-        // dp数组
+        // dp数组 dp[承重]=最大价值
         int[] dp = new int[bagSize + 1];
         // 初始状态
         // 只有第1个物品
@@ -41,6 +45,7 @@ public class Main2 {
                 // 不放入第i件物品，放入第i件物品
                 dp[j] = Math.max(dp[j], value[i] + dp[j - weight[i]]);
             }
+            // dp[承重]=最大价值=sum / 2，承重内选择的物品的价值=sum/2，找到了等和子集
             if (dp[bagSize] == bagSize) return true;
         }
 

@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * https://leetcode.cn/problems/3sum/
- * 三数之和
+ * 三数之和=0，i!=l!=r
  */
 public class Main8 {
     public List<List<Integer>> threeSum(int[] nums) {
@@ -17,7 +17,7 @@ public class Main8 {
         //以-nums[i]做target，在i+1~len-1中找sum=target的数
         int n = nums.length, l, r, sum;
         for (int i = 0; i < n; i++) {
-            // 减枝，排序后 第1个元素>0，后续元素一定>0
+            // 减枝，排序后 第1个元素>0，后续元素一定>0，sum=nums[i]+nums[l]+nums[r]>0 不可能=0
             if (nums[i] > 0) return res;
             //去重，相邻相等只要第1个
             if (i > 0 && nums[i] == nums[i - 1]) continue;
