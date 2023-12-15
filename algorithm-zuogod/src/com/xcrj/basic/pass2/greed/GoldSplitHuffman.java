@@ -20,6 +20,7 @@ public class GoldSplitHuffman {
             pq.offer(c);
         }
         int r=0;
+        // 哈夫曼
         while(pq.size()!=1){
             int a=pq.poll();
             int b=pq.poll();

@@ -20,6 +20,7 @@ public class StrPower {
         ls.forEach(System.out::println);
     }
     static List<String> ls=new ArrayList<>();
+    // 把某个数组放入或不放入结果数组中
     public static void strPower(int i,String str,char[]cs) {
         if(i==str.length()){
             ls.add(String.valueOf(cs));

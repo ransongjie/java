@@ -3,6 +3,8 @@ package com.xcrj.str;
 /**
  * https://leetcode.cn/problems/repeated-substring-pattern/
  * 重复的子字符串
+ * abab, 由ab重复两次构成
+ * abcabcabc, 由abc重复三次构成
  */
 public class Main6 {
     public boolean repeatedSubstringPattern(String s) {

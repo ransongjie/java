@@ -23,6 +23,7 @@ public class Main02 {
     }
 
     /**
+     * 
      * @param as
      * @return 左边界 或 -2
      */
@@ -30,6 +31,7 @@ public class Main02 {
         int l = 0, r = as.length - 1, leftBorder = -2;
         while (l <= r) {
             int mid = (l + r) >> 1;
+            // 找左边界，尽量往左走
             if (as[mid] >= target) {// >=
                 r = mid - 1;
                 leftBorder = r;// 往左边移动确定左边界
@@ -48,6 +50,7 @@ public class Main02 {
         int l = 0, r = as.length - 1, rightBorder = -2;
         while (l <= r) {
             int mid = (l + r) >> 1;
+            //找右边界，尽量往右走
             if (as[mid] <= target) {
                 l = mid + 1;
                 rightBorder = l;// 往右边移动确定右边界

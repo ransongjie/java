@@ -34,6 +34,7 @@ public class MaxWidth {
 
     public static int maxWidth(Node n) {
         if(n==null) return 0;
+        // 广度优先遍历，记录结点所在层数，<结点，层数>
         Queue<Node> que=new LinkedList<>();
         Map<Node,Integer> nodeLevel=new HashMap<>();
         Node p=n;
@@ -53,8 +54,10 @@ public class MaxWidth {
             }
         }
 
+        // 求最大宽度
         int maxWidth=0;
         for (int i = 1; i <= level; i++) {
+            // 获取第i层的宽度
             int width=0;
             for (int lev: nodeLevel.values()) {
                 if(lev==i) width++;
@@ -65,15 +68,19 @@ public class MaxWidth {
         return maxWidth;
     }
 
+    //给每一个结点打上一个层号标记
     public static int maxWidth2(Node n) {
         if(n==null) return 0;
+
         int maxWidth=0;
         Queue<Node> que=new LinkedList<>();
         Map<Node,Integer> nodeLevel=new HashMap<>();
+
         Node p=n;
         int level=1;
         que.offer(p);
         nodeLevel.put(p,level);
+
         int curLevel=1;
         int width=0;
         while(!que.isEmpty()){
@@ -107,15 +114,17 @@ public class MaxWidth {
     public static int maxWidth3(Node n) {
         if(n==null) return 0;
         
-        Node curLevelLastNode=n;
-        Node nxtLevelLastNode=null;
-        int curLevelNum=0;
-        int maxLevelNum=0;
+        Node curLevelLastNode=n; //当前层最后1个结点
+        Node nxtLevelLastNode=null;//下一层最后1个结点
+        int curLevelNum=0; //当前层结点个数
+        int maxLevelNum=0; //最大结点个数
         
         Queue<Node> que=new LinkedList<>();
         que.offer(n);
         while(!que.isEmpty()){
             Node p=que.poll();
+
+            // 更新下一层最后1个结点
             if(p.left!=null){
                 que.offer(p.left);
                 nxtLevelLastNode=p.left;
@@ -125,8 +134,12 @@ public class MaxWidth {
                 nxtLevelLastNode=p.right;
             }
 
+            // 增加当前层结点个数
             curLevelNum++;
-            if(p==curLevelLastNode){//来到了当前层的最后一个结点
+
+            // 来到当前层的最后一个结点
+            if(p==curLevelLastNode){
+                // 更新最大层数
                 maxLevelNum=Math.max(maxLevelNum, curLevelNum);
                 curLevelLastNode=nxtLevelLastNode;
                 nxtLevelLastNode=null;

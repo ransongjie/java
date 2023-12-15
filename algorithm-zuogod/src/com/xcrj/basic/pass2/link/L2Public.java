@@ -25,6 +25,7 @@ public class L2Public {
         if(n1==null) return;
         if(n2==null) return;
 
+        // 双指针，谁小谁后移，直到相等
         Node p1=n1;
         Node p2=n2;
         while(p1!=null&&p2!=null){

@@ -6,10 +6,8 @@ package com.xcrj.str;
  */
 public class Main4 {
     /**
-     * 反转区间为前n的子串
-     * 反转区间为n到末尾的子串
-     * 反转整个字符串
-     *
+     * 反转0~n子串，反转n+1~Len字串，反转整个字符串
+     * 
      * @param s
      * @param n
      * @return

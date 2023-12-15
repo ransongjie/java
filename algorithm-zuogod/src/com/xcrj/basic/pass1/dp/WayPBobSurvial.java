@@ -43,6 +43,7 @@ public class WayPBobSurvial {
     public static String wayPBobSurvial(int M,int N,int a,int b,int k) {
         long all=(long)Math.pow(4, k);
         long alive=pBobSurvial(M,N,a,b,k);
+        // 求最大公因数
         long g=gcd(all, alive);
         return String.valueOf(alive/g)+"/"+String.valueOf(all/g);
     }
@@ -62,6 +63,8 @@ public class WayPBobSurvial {
     /**
      * 最大公约数
      * 辗转相除法 gcd(a,b)=gcd(b,a%b), param2=0 return param1
+     * 
+     * 商/余数，直到商等于0
      */
     private static long gcd(long a,long b) {
         return b==0?a:gcd(b,a%b);

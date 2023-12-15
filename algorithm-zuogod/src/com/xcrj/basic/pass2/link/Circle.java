@@ -34,8 +34,10 @@ public class Circle {
     public static Node circle1(Node h) {
         if(h==null) return null;
         Node p=h;
+        // set记录判断重复
         Set<Node> set=new HashSet<>();
         while(p!=null){
+            // 循环直到出现重复结点
             if(set.contains(p)){
                 return p;
             }
@@ -46,13 +48,16 @@ public class Circle {
         return null;
     }
 
+    // 快慢指针
     public static Node circle2(Node h) {
         if(h==null) return null;
         Node fast=h;
         Node slow=h;
+
         while(fast!=null&&fast.next!=null&&fast.next.next!=null){
             fast=fast.next.next;
             slow=slow.next;
+            // 循环直到fast等于slow
             if(fast==slow){
                 break;
             }
@@ -61,6 +66,7 @@ public class Circle {
         if(fast==null||fast.next==null||fast.next.next==null) return null;//
 
         Node p=h;
+        // p从头开始，循环直到slow=p
         while(p!=slow){
             p=p.next;
             slow=slow.next;

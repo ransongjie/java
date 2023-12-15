@@ -27,7 +27,9 @@ public class Bloom {
     static final int[]bitMap=new int[num];//num*bitNum
 
     public int getBitN(int n) {
+        //先求在哪一个int
         int arrIdx=n/bitNum;
+        //再求在哪一个bit
         int bitIdx=n%bitNum;
         return (bitMap[arrIdx]>>bitIdx)&1;
     }

@@ -23,7 +23,7 @@ public class QuickSortL {
         // lb结点值作轴值
         int pivotVal = lb.val;
 
-        // pi从l.next到end，将<pivotVal的结点的值交换，swap(l,r)。l是<pivotVal的值的左边界
+        // pi从lb.next到end，将<pivotVal的结点的值交换，swap(l,r)。l是<pivotVal的值的左边界
         while (pi != end.next && pi != null) {
             // 轴值 右侧的值要大于左侧的值
             if (pi.val < pivotVal) {

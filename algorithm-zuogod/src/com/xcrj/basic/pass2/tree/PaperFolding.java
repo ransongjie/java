@@ -1,8 +1,12 @@
 package com.xcrj.basic.pass2.tree;
-
+/**
+ * 折纸 从上到下输出折痕方向
+ * 前序遍历构建，中序遍历（从上到下）输出
+ */
 public class PaperFolding {
     public static void main(String[] args) {
         int k=3;
+        // 初始为1凹
         Node n=createInOrder(k, 1);
         Util.printTree(n);
         inOrder(n);

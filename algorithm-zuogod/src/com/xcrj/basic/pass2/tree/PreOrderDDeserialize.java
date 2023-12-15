@@ -33,7 +33,8 @@ public class PreOrderDDeserialize {
         return proccess(ss);
     }
 
-    static int i=0;//
+    static int i=0;
+    // 遍历的过程中构建二叉数，使用i获得字母
     private static Node proccess(String[] ss){
         if(ss[i].equals("#")) return null;
         Node n=new Node(Integer.valueOf(ss[i]));

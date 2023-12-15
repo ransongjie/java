@@ -30,6 +30,7 @@ public class WayHorseKStepToE {
      * @return
      */
     public static int wayHorseKStepToE3(int A,int B,int a,int b,int k) {
+        //[k步][行数][列数]
         int[][][]dp=new int[k+1][A+1][B+1];
         dp[0][0][0]=1;
 

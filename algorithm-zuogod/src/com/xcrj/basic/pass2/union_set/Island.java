@@ -16,6 +16,7 @@ public class Island {
         int m=ass.length;
         int n=ass[0].length;
         int r=0;
+        // 遍历每个位置
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if(ass[i][j]==1){
@@ -30,6 +31,7 @@ public class Island {
     private static void inflict(int[][]ass,int i,int j,int m,int n) {
         if(i<0||i>m-1||j<0||j>n-1||ass[i][j]!=1) return;
         ass[i][j]=2;
+        // 走上下左右去感染
         inflict(ass, i+1, j, m, n);
         inflict(ass, i-1, j, m, n);
         inflict(ass, i, j+1, m, n);

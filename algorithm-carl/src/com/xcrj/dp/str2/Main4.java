@@ -11,6 +11,7 @@ public class Main4 {
     }
 
     /**
+     * s1变成s2
      * @param s1
      * @param s2
      * @param add 增加代价
@@ -31,7 +32,7 @@ public class Main4 {
 
         for (int i = 1; i < s1.length() + 1; i++) {
             for (int j = 1; j < s2.length() + 1; j++) {
-                //替换则两个字符都不用考虑，s1删除s1[i-1]，s1添加了s2[j-1]
+                //替换则两个字符都不用考虑，s1删除s1[i-1]则不考虑第i-1个字符，s1添加了s2[j-1]则不考虑第j-1个字符
                 dp[i][j] = (s1.charAt(i - 1) == s2.charAt(j - 1)) ?
                         dp[i - 1][j - 1] : Math.min(dp[i - 1][j - 1] + rep, Math.min(del + dp[i - 1][j], add + dp[i][j - 1]));
             }

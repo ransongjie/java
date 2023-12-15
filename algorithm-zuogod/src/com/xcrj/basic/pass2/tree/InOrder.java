@@ -27,7 +27,10 @@ public class InOrder {
         inOrder1(n.right);
     }
 
-    //入栈顺序 在孩子不为空一直入左孩子
+    /**
+     * 入栈顺序 在孩子不为空一直入左孩子 
+     * 左左左，左右左左在
+     */
     public static void inOrder2(Node r) {
         if(r==null) return;
         Node p=r;

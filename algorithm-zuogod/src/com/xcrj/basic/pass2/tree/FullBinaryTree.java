@@ -1,4 +1,5 @@
 package com.xcrj.basic.pass2.tree;
+
 //满二叉树
 public class FullBinaryTree {
     public static void main(String[] args) {
@@ -20,6 +21,7 @@ public class FullBinaryTree {
 
     static class Element{
         boolean isFull;
+        // 利用高度和结点数量关系=2^h-1=num
         int height;
         int num;
         public Element() {
@@ -39,18 +41,22 @@ public class FullBinaryTree {
         if(n==null) return null;
         Element left=proccess(n.left);
         Element right=proccess(n.right);
+
+        // 1个结点是满二叉树
         boolean isFull=true;
         int height=1;
         int num=1;
+
         if(left!=null){
-            num+=left.num;
-            height=Math.max(height,left.height+1);//+1的位置
+            num+=left.num;// 加上左子树的结点
+            height=Math.max(height,left.height+1);// 高度=max(leftH,rightH,currentH)
         }
         if(right!=null){
             num+=right.num;
             height=Math.max(height,right.height+1);//
         }
         isFull=(1<<height)-1==num?true:false;
+
         return new Element(isFull,height,num);
     }
 

@@ -66,7 +66,7 @@ public class PalindromeL {
         return true;
     }
 
-    //
+    //链表中点反转
     public static boolean palindromeL2(Node h) {
         if(h==null) return false;
         if(h.next==null) return true;

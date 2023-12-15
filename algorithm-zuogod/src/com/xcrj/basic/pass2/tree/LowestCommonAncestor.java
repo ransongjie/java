@@ -72,6 +72,12 @@ public class LowestCommonAncestor {
         handleParentMap(n.right, nodeParent);
     }
 
+    /**
+     * o1和o2的最低公共祖先结点
+     * @param n root
+     * @param o1 
+     * @param o2 
+     */
     public static Node lca2(Node n,Node o1,Node o2) {
         //o1在o2的子树上 或 o2在o1的子树上
         if(sonTree(o1, o2)){
@@ -94,13 +100,15 @@ public class LowestCommonAncestor {
 
     //从n往左子树找到了o1，往右子树找到了o2
     private static Node sonTree2(Node n,Node o1,Node o2){
+        // 找到了o1或o2
         if(n==null||n==o1||n==o2) return n;
-        //从n往左子树找到了o1，往右子树找到了o2
+        // 从n往左子树找到了o1，往右子树找到了o2
         Node left=sonTree2(n.left, o1, o2);
         Node right=sonTree2(n.right, o1, o2);
         if(left!=null&&right!=null){
             return n;
         }
+        // 返回非null的
         return left==null?right:left;
     }
 }

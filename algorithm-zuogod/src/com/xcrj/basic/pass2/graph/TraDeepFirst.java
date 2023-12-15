@@ -34,8 +34,8 @@ public class TraDeepFirst {
             Node a = s.pop();
             for (Node b : a.adjns) {
                 if (visited.contains(b)) continue;
-                s.push(a);//
-                s.push(b);
+                s.push(a);//还有其它连接点
+                s.push(b);//后加入的先访问
                 visited.add(b);
                 System.out.println(b.val);
                 break;

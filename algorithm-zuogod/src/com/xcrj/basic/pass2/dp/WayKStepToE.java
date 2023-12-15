@@ -2,6 +2,13 @@ package com.xcrj.basic.pass2.dp;
 
 import java.util.Arrays;
 
+/**
+ * 从s必须走k步到达e的方法种数
+ * N=5 1 2 3 4 5
+ * s=2 
+ * e=4
+ * k=4
+ */
 public class WayKStepToE {
 
     /***

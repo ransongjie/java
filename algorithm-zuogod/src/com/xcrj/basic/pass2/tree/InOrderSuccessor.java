@@ -39,8 +39,15 @@ public class InOrderSuccessor {
         
     }
 
+    /**
+     * NodeP 有parent指针
+     * @param n root
+     * @param x need
+     */
     public static NodeP ios(NodeP n,NodeP x) {
+        // 有右孩子返回右孩子
         if(x.right!=null) return x.right;
+        // 无右孩子，找左孩子的父亲
         NodeP p=x;
         while(p!=n){
             if (p.parent.left==p){

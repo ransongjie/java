@@ -15,7 +15,9 @@ public class MinLexOrder {
 
     public static String minLexOrder(String[] ss) {
         if(ss==null || ss.length==0)return null;
-        Arrays.sort(ss,(o1,o2)->o1.compareTo(o2));//按字典序进行比较
+        // 按字典序进行比较
+        Arrays.sort(ss,(o1,o2)->o1.compareTo(o2));
+        // 拼接字符串
         StringBuilder sb=new StringBuilder();
         for (String string : ss) {
             sb.append(string);

@@ -24,7 +24,7 @@ public class LargeNum {
     }
 
     /**
-     * 
+     * 获取a的符号
      * @param a
      * @return a>0 return 1, a<0 return 0
      */
@@ -33,7 +33,7 @@ public class LargeNum {
     }
 
     /**
-     * 
+     * 0变1，1变0
      * @param a
      * @return 1 return 0, 0 return 1
      */
@@ -42,8 +42,7 @@ public class LargeNum {
     }
     
     /**
-     * a和b都是正整数
-     * 返回a或b只取决于a-b=c的符号位
+     * a和b都是正整数》a-b>0则a>b
      * @param a
      * @param b
      * @return
@@ -72,8 +71,9 @@ public class LargeNum {
         int sa=sign(a);
         int sb=sign(b);
         int sc=sign(a-b);
-        int diffab=sa^sb;//不同为1
-        int sameab=flip(diffab);
+        // a和b符号相同为0，不同为1
+        int diffab=sa^sb;// 符号不同取决于a的符号
+        int sameab=flip(diffab);// 符号不同取决于a-b的符号
         int returnA=diffab*sa+sameab*sc;
         int returnB=flip(returnA);
         return returnA*a+returnB*b;

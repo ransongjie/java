@@ -1,6 +1,9 @@
 package com.xcrj.basic.pass2.link;
 
-//返回可能有环链表的1个交点，可能没有交点
+/**
+ * 返回可能有环链表的1个交点，可能没有交点
+ * https://zhuanlan.zhihu.com/p/106121179
+ */
 public class CrossPoint {
     public static void main(String[] args) {
         //loop1=null and loop2=null
@@ -96,10 +99,15 @@ public class CrossPoint {
 
     public static Node crossPoint(Node h1,Node h2) {
         if(h1==null||h2==null) return null;
+        // 获取链表环的入口结点
         Node loop1=circleIn(h1);
         Node loop2=circleIn(h2);
-        //loop1=null and loop2=null
-        //Y形 or 平行线
+        /**
+         * loop1=null && loop2=null》Y形 or 平行线
+         * 终点结点不是同一个》平行线
+         * 终点结点是同一个》Y形
+         * 如何求Y形的交点？长度相减，更长的链表多走差值长度，两个链表再一起走直到相等，就是交点
+         */
         if(loop1==null&&loop2==null){
             EndLen el1=getEndLen(h1);
             EndLen el2=getEndLen(h2);
@@ -107,28 +115,26 @@ public class CrossPoint {
             return getYJoint(h1, h2, el1.len, el2.len);
         }
 
-        //loop1=null and loop2!=null
-        //loop1!=null and loop2=null
-        //不可能相交
+        // (loop1=null && loop2!=null) || (loop1!=null and loop2=null)》不可能相交
         if(loop1==null|loop2==null) return null;
 
-        //loop1!=null and loop2!=null
-        //6形 尾巴相交 圆圈相交 两个独立的6 
+        // loop1!=null && loop2!=null》两个6
         if(loop1!=null&&loop2!=null){
+            // loop1==loop2》两个6在尾巴上相交
             if(loop1==loop2){
                 int len1=getLen(h1, loop1);
                 int len2=getLen(h2, loop1);
                 return getYJoint(h1,h2,len1,len2);
             }
 
-            //两个独立的6 
-            //遇到loop2之前遇到了loop1
+            //遇到loop2之前遇到了loop1（遇到他之前遇到了自己）》两个独立的6 
             Node p=loop1;
             while(p!=loop2){
                 p=p.next;
                 if(p==loop1) return null;
             }
-            // 圆圈相交 
+
+            // 两个6的圆圈相交，返回其中1个交点即可 
             return loop1;
         }
 

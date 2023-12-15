@@ -36,12 +36,14 @@ public class CPRandomP {
         if(h==null) return null;
         Map<NodeR,NodeR> map=new HashMap<>();
 
+        // 复制所有结点
         NodeR p=h;
         while(p!=null){
             map.put(p,new NodeR(p.val));
             p=p.next;
         }
 
+        // 赋值next指针
         p=h;
         while(p!=null){
             if(p.next!=null){
@@ -50,6 +52,7 @@ public class CPRandomP {
             p=p.next;
         }
 
+        // 赋值rand指针
         p=h;
         while(p!=null){
             if(p.rand!=null){
@@ -65,6 +68,7 @@ public class CPRandomP {
     public static NodeR cpRandomP2(NodeR h) {
         if(h==null) return null;
 
+        // 每个结点后再创建一个结点
         NodeR p=h;
         while(p!=null){
             NodeR n=new NodeR(p.val);
@@ -74,15 +78,18 @@ public class CPRandomP {
             p=p.next.next;
         }
 
+        // 赋值cp结点的rand指针
         p=h;
         while(p!=null){
             if(p.rand!=null){
+                // 为cp结点赋值rand指针。p.next=cp。p.rand.next等于cp.rand
                 p.next.rand=p.rand.next;
             }
 
             p=p.next;
         }
 
+        // 分离原链表和cp链表
         p=h;
         NodeR newH=p.next;
         while(p.next.next!=null){

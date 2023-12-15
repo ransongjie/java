@@ -43,7 +43,7 @@ public class HeapSort {
         for (int i = 0; i < as.length; i++) {//i < as.length
             swap(as, 0, heapSize);
             heapSize--;
-            heapfy(as, heapSize);
+            heapfy(as, heapSize);// 只有堆顶元素无序
         }
     }
 

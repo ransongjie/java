@@ -25,12 +25,17 @@ public class Main3 {
      */
     private StringBuilder removeSpace(String s) {
         StringBuilder sb = new StringBuilder();
+
+        // 获得首尾无空格的 开始 和 结束 下标
         char[] cs = s.toCharArray();
         int n = cs.length, l = 0, r = n - 1;
+
         // 去掉了首尾的空格
         // 先尽可能过滤掉不需要的元素
         while (cs[l] == ' ') l++;
         while (cs[r] == ' ') r--;
+
+        // 只添加中间不是空格的元素
         // 去掉中间空格
         // 不是空格则添加元素，是空格且sb末尾不是空格则添加空格
         for (int i = l; i <= r; i++) {

@@ -50,6 +50,7 @@ public class MSTPrim {
         for (Node n : g.nodes.values()) {// 森林
             if (selected.contains(n)) continue;
 
+            //加入这个点的出边
             selected.add(n);
             for (Edge e : n.adjes) {
                 pque.offer(e);
@@ -61,7 +62,7 @@ public class MSTPrim {
 
                 rset.add(e);
                 selected.add(e.to);
-                //将新点连接边都加入队列
+                //将新点出边都加入队列
                 for (Edge edge : e.to.adjes) {
                     pque.offer(edge);
                 }

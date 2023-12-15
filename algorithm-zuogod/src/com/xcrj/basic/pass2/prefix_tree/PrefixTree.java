@@ -30,6 +30,7 @@ public class PrefixTree {
         }
     }
 
+    // 根结点
     static TreeNode root=new TreeNode();
 
     public static int wordNum(String str) {
@@ -44,7 +45,7 @@ public class PrefixTree {
         }
         return p.end;
     }
-
+    
     public static int prefixNum(String str) {
         if(str==null) return 0;
         TreeNode p=root;
@@ -79,13 +80,15 @@ public class PrefixTree {
      * @param str
      */
     public static void del(String str) {
-        if(wordNum(str)==0) return;//
+        //没有这个单词
+        if(wordNum(str)==0) return;
         if(str==null) return;
         char[]cs=str.toCharArray();
         TreeNode p=root;
         p.pass--;
         for (char c : cs) {
             p.nexts[c-'a'].pass--;
+            // 快速返回
             if(p.nexts[c-'a'].pass==0){
                 p.nexts[c-'a']=null;
                 return;

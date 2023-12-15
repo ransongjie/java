@@ -11,6 +11,7 @@ package com.xcrj.basic.pass1.greed;
  * 原码=1000 0010
  * 补码=1111 1110
  * -128
+ * 原码=1000 0000
  * 补码=1000 0000
  */
 public class NQueen2 {

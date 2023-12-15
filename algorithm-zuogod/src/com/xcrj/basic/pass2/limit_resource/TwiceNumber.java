@@ -3,6 +3,8 @@ package com.xcrj.basic.pass2.limit_resource;
  * 40亿个无符号整数, 所有出现两次的数
  * ref: https://blog.csdn.net/aa5305123/article/details/83097006
  * 
+ * v1: bit[] arr=new bit[UINT_MAX*2]
+ * 
  * 步骤：
  * 1. bit[] arr=new bit[UINT_MAX*2]
  * 2. 遍历40亿个无符号整数, value数操作, bit[value*2], bit[value*2+1]

@@ -40,10 +40,11 @@ public class LocalMin {
         if(mid==as.length-1&&as[mid]<as[mid-1]){
             return mid;
         }
-
         if(as[mid]<as[mid+1]&&as[mid]<as[mid-1]){
             return mid;
         }
+
+        // 往更小的地方移动
         if(as[mid]>as[mid+1]){
             return proccess(as, mid+1, end);//
         }else{

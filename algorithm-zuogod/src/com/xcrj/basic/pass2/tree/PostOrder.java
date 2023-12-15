@@ -28,6 +28,8 @@ public class PostOrder {
     }
 
     //入栈顺序 根左右 到 另一个栈 左右根
+    //入栈 根右左》出栈 左右根
+    // 入栈 左右》出栈 右左》入栈 右左》出栈 左右
     public static void postOrder2(Node r) {
         if(r==null) return;
         Node p=r;

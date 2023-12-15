@@ -28,9 +28,7 @@ public class CompleteBinaryTree {
     }   
     
     /**
-     * 1. 有右无左 return false
-     * 2. 有左无右 开关变量
-     * 3. 之后的结点必须既无左又无右
+     * 广度优先遍历
      */
     public static boolean completeBinaryTree(Node n) {
         Queue<Node> que=new LinkedList<>();
@@ -39,9 +37,13 @@ public class CompleteBinaryTree {
         boolean flag=false;
         while(!que.isEmpty()){
             p=que.poll();
+            // 有右无左返回false
             if(p.right!=null&&p.left==null) return false;
-            if(flag&&(p.left!=null||p.right!=null)) return false;//
+            // 有左无右出现2次返回false
+            if(flag&&(p.left!=null||p.right!=null)) return false;
+            // 有左无右出现1次, 开关变量，计数变量
             if(p.left!=null&&p.right==null) flag=true;
+            
             if(p.left!=null){
                 que.offer(p.left);
             }

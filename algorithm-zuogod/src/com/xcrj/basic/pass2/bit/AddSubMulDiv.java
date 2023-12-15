@@ -50,11 +50,8 @@ public class AddSubMulDiv {
     }
 
     /**
-     * 二进制的乘法
-     * b从右往左是1，则r加上左移后的a
-     * - b=0则停止循环
-     * - a<<1, b>>>1
-     * - b最右侧为1, 则r=r+a<<1
+     * a*b=a*2^i=a<<k次1
+     * b转化为多个2相乘，a*2，左移1位
      * @param a
      * @param b
      * @return
@@ -62,7 +59,7 @@ public class AddSubMulDiv {
     public static int mul(int a,int b) {
         int r=0;
         while(b!=0){
-            if((b&opp(b))==1){//最最右侧的1是否等于1
+            if((b&opp(b))==1){//最右侧的1是否等于1
                 r=add(r, a);
             }
             a=a<<1;
@@ -99,7 +96,7 @@ public class AddSubMulDiv {
     }
 
     /**
-     * x y都转化为正数进行计算
+     * a/b=2^i(商)...余数
      * @param x
      * @param y
      * @return
@@ -111,14 +108,14 @@ public class AddSubMulDiv {
 
         int r=0;
         for (int i = 31; i >-1; i=sub(i, 1)) {
-            if((a>>i)>=b){
-                a=sub(a,b<<i);//余数
+            if((a>>i)>=b){//a/b=2^i(商)...余数
+                a=sub(a,b<<i);//余数 a=a-(b<<i)
                 r|=(1<<i);//商
             }
         }
 
         /**
-         * a b 一正一负 结果过为负
+         * a b 一正一负 结果为负
          * a b 符号相同 结果为正
          */
         return (a<0)^(b<0)?opp(r):r;

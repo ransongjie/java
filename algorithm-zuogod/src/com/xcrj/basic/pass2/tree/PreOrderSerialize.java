@@ -18,6 +18,7 @@ public class PreOrderSerialize {
         System.out.println(pods(node1));
     }
 
+    // 考察二叉树的递归会经过同一层3次
     public static String pods(Node n) {
         if(n==null) return "#_";
         StringBuilder sb=new StringBuilder();

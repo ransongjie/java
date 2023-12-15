@@ -7,7 +7,8 @@ package com.xcrj.dp.str2;
 public class Main1 {
     // s是不是t的子序列，可以不连续
     public boolean isSubsequence(String s, String t) {
-        //dp[i][j]=以s[i]结尾的子数组是否 是 以t[j]结尾的子数组的子序列 的长度
+        //dp[i][j]=长度为i的子数组，是不是长度为j的子数组的子序列
+        //以s[i-1]结尾的子数组是否 是 以t[j-1]结尾的子数组的子序列 的长度
         int[][] dp = new int[s.length() + 1][t.length() + 1];
         dp[0][0] = 0;
         for (int i = 0; i < s.length() + 1; i++) {

@@ -34,7 +34,7 @@ public class GeKLeftmost {
         if(start>end) return -1;
         int mid=(start+end)/2;
         if(as[mid]>=k){// >=k，找到一个满足条件的数后，继续往左看有没有更左的满足条件的数
-            int t=mid;
+            int t=mid;// 对比值
             int t1=proccess(as, k, start, mid-1);
             if(t1!=-1&&t1<t){
                 t=t1;

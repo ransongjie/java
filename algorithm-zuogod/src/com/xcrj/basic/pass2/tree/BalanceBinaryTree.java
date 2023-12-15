@@ -1,5 +1,10 @@
 package com.xcrj.basic.pass2.tree;
 
+/**
+ * 平衡二叉树也叫AVL树，它或者是一颗空树，或者具有以下性质的二叉排序树：
+ * 它的左子树和左子树的高度之差(平衡因子)的绝对值不超过1，
+ * 且它的左子树和右子树都是一颗平衡二叉树。
+ */
 public class BalanceBinaryTree {
     public static void main(String[] args) {
         Node node1=new Node(1);
@@ -35,13 +40,19 @@ public class BalanceBinaryTree {
         return proccess(n).isBalanced;
     }
 
+    // 后续遍历
     private static We proccess(Node n){
-        if(n==null) return new We(true,0);//
+        // 空结点是平衡二叉树
+        if(n==null) return new We(true,0);
         We left=proccess(n.left);
         We right=proccess(n.right);
+        // 当前子树高度
         int height=Math.max(left.height, right.height)+1;
+        // 左右子树是否平衡二叉树
         boolean isBalanced=left.isBalanced&&right.isBalanced;
+        // 左右子树高度差?<=1
         if(Math.abs(right.height-left.height)>1) isBalanced=false;
+
         return new We(isBalanced,height);
     }
 }

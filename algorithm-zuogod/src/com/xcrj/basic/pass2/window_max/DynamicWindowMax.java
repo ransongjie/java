@@ -7,31 +7,25 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 动态窗口中的最大值
+ * 获取动态窗口中的最大值
+ * 
  * 双端队列
  * - 模拟窗口向右滑动，右对头入，左对头出
  * - 从左往右严格单调递减
  * - 左对头一定是最大值
+ * 三个方法：addR() delL() getMax()
  */
 public class DynamicWindowMax {
-    public static void main(String[] args) {
-        int times=1000000;
-        int maxLen=100;
-        int maxV=100;
-        for (int i = 0; i < times; i++) {
-            Element e=getElement(maxLen, maxV);
-            List<Integer> ls1=cp(e.as, e.w);
-            List<Integer> ls2=dynamicWindowMax(e.as, e.w);
-            if(ls1==null&&ls2==null) continue;
-            Integer[] rs1=ls1.toArray(new Integer[]{});//
-            Integer[] rs2=ls2.toArray(new Integer[]{});
-            if(!Arrays.equals(rs1, rs2)){
-                System.out.println("not good");
-                System.out.println(Arrays.toString(rs1));
-                System.out.println(Arrays.toString(rs2));
-                throw new RuntimeException();
-            }
-        }
+    int l;
+    int r;
+    int[]as;
+    Deque<Integer> deque;//存储as下标
+
+    private DynamicWindowMax(int[]as) {
+        this.l=-1;//
+        this.r=0;
+        this.as=as;
+        this.deque=new LinkedList<>();
     }
 
     /**
@@ -46,10 +40,12 @@ public class DynamicWindowMax {
         
         DynamicWindowMax dwm=new DynamicWindowMax(as);
 
+        // 先加满窗口
         for (int i = 0; i < w; i++) {
             dwm.addRight();
         }
 
+        // 添加最大值，从右侧加入，从左侧删除
         for (int i = w; i < as.length+1; i++) {//
             ls.add(dwm.getWindowMax());
             dwm.addRight();
@@ -59,35 +55,23 @@ public class DynamicWindowMax {
         return ls;
     }
 
-    int l;
-    int r;
-    int[]as;
-    Deque<Integer> deque;//存储as下标
-
-    public DynamicWindowMax(int[]as) {
-        this.l=-1;//
-        this.r=0;
-        this.as=as;
-        this.deque=new LinkedList<>();
-    }
-
     /**
-     * as[r]从右侧放入deque中，保持严格单调递减
+     * 从右侧放入窗口
      */
-    public void addRight() {
+    private void addRight() {
         if(r==as.length) return;
 
+        // as[r]从右侧放入deque中，从左往右单调递减
         while(!deque.isEmpty()&&as[deque.peekLast()]<=as[r]){
             deque.pollLast();
         }
-
         deque.offerLast(r++);
     }
 
     /**
      * 左对头和l相等才从左出队1个
      */
-    public void delLeft() {
+    private void delLeft() {
         if(l>r-1) return;
         l++;//
         if(l==deque.peekFirst()){
@@ -95,7 +79,8 @@ public class DynamicWindowMax {
         }
     }
 
-    public Integer getWindowMax() {
+    // 获取窗口最大值，左对头就是最大值
+    private Integer getWindowMax() {
         if(deque.isEmpty()) return null;
         return as[deque.peekFirst()];
     }
@@ -138,5 +123,25 @@ public class DynamicWindowMax {
             l++;
         }
         return ls;
+    }
+
+    public static void main(String[] args) {
+        int times=1000000;
+        int maxLen=100;
+        int maxV=100;
+        for (int i = 0; i < times; i++) {
+            Element e=getElement(maxLen, maxV);
+            List<Integer> ls1=cp(e.as, e.w);
+            List<Integer> ls2=dynamicWindowMax(e.as, e.w);
+            if(ls1==null&&ls2==null) continue;
+            Integer[] rs1=ls1.toArray(new Integer[]{});//
+            Integer[] rs2=ls2.toArray(new Integer[]{});
+            if(!Arrays.equals(rs1, rs2)){
+                System.out.println("not good");
+                System.out.println(Arrays.toString(rs1));
+                System.out.println(Arrays.toString(rs2));
+                throw new RuntimeException();
+            }
+        }
     }
 }

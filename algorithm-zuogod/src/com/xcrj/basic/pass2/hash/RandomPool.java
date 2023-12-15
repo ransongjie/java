@@ -42,8 +42,8 @@ public class RandomPool<T> {
         }
     }
 
+    //要连续不能出现空洞，否则不是等概率的
     //使用末尾的元素填充想删除元素的idx
-    //按照idx有序，idxT按照key有序
     public void delete(T t){
         if(tIdx.containsKey(t)){
             int delIdx=tIdx.get(t);

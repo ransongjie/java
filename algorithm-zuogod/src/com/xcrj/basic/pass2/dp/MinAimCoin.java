@@ -24,11 +24,15 @@ public class MinAimCoin {
         if(rest==0) return 0;//返回硬币数量为0
         if(idx==coins.length) return -1;
 
+        // 选idx硬币
         int pNext=minAimCoin(coins, rest-coins[idx], idx+1);
+        // 不选idx硬币
         int qNext=minAimCoin(coins, rest, idx+1);
+
         if(pNext==-1&&qNext==-1) return -1;
-        if(pNext!=-1&&qNext==-1) return pNext+1;
+        if(pNext!=-1&&qNext==-1) return pNext+1;// +1，因为选了idx硬币
         if(pNext==-1&&qNext!=-1) return qNext;
+
         return Math.min(pNext+1, qNext);
     }
 

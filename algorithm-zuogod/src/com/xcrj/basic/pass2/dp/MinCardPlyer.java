@@ -33,9 +33,11 @@ public class MinCardPlyer {
      */
     public static int cardPlyer3(int[]cards) {
         int n=cards.length;
+        // dp[次数][第i张牌]
         int[][]first=new int[n][n];
         int[][]second=new int[n][n];
         for (int i = 0; i < n; i++) {
+            // 第i次先手拿第i张牌
             first[i][i]=cards[i];
             second[i][i]=0;
         }
