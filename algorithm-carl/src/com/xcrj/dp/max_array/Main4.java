@@ -2,7 +2,7 @@ package com.xcrj.dp.max_array;
 
 /**
  * https://leetcode.cn/problems/longest-common-subsequence/
- * 最长公共子序列
+ * 最长公共子序列，子序列不需要连续
  * dp[i][j] 长度为i 长度为j
  */
 public class Main4 {

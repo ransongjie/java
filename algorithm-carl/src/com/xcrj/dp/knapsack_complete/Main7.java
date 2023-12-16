@@ -16,12 +16,13 @@ public class Main7 {
     public boolean wordBreak(String s, List<String> wordDict) {
         Set<String> set = new HashSet<>(wordDict);
         int bagSize = s.length();
-        // dp[子串]=字典能否组成
+        // dp[0~j子串]=字典能否组成
         boolean[] dp = new boolean[bagSize + 1];
         dp[0] = true;
         // 和顺序有关，单词a在前和单词b在前组成的是不同的子串
         for (int i = 1; i < bagSize + 1; i++) {// 非空字符串 i=1
             for (int j = 0; j < i && !dp[i]; j++) {// !dp[i] 已经为true了不用再求
+                //dp[j]=true, 0~j的字串能由wordDict中单词组成
                 dp[i] = dp[j] && set.contains(s.substring(j, i));
             }
         }

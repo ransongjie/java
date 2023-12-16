@@ -2,7 +2,7 @@ package com.xcrj.dp.max_array;
 
 /**
  * https://leetcode.cn/problems/maximum-length-of-repeated-subarray/
- * 最长公共子数组
+ * 最长公共子数组，子数组需要连续
  * dp[i][j] 以nums1[i-1]结尾 以nums2[j-1]结尾
  */
 public class Main3 {
@@ -20,6 +20,7 @@ public class Main3 {
 
         int max = 0;
         for (int i = 1; i < nums1.length + 1; i++) {
+            //nums1中的字符i和nums2中的每个字符对比
             for (int j = 1; j < nums2.length + 1; j++) {
                 /**
                  * nums[i-1],nums[i]

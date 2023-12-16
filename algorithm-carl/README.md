@@ -14,6 +14,7 @@ dp[i], 长度为i，以nums[i-1]结尾
 ```text
 01背包问题：每种物品有且只有一个&&每个物品只需要考虑选与不选两种情况
 遍历顺序：先物品再背包 或 先背包再物品 都可以
+第二层循环：倒序，因为同1个物品只能添加1次
 求最大价值/方法状态转移：dp[j] = Math.max(dp[j], value[i] + dp[j - weight[i]]);
 求最大价值/方法结果：return dp[bagSize];
 求总方法数状态转移：dp[j] += dp[j - weight[i]];
@@ -28,7 +29,8 @@ int[] dp = new int[bagSize + 1];  //dp数组
 ## knapsack_complete
 ```text
 complete背包问题：每种物品都有无限件
-遍历顺序：先物品再背包（组合问题）；先背包再物品（排列问题）
+遍历顺序：先物品再背包（组合问题）；先背包再物品（排列问题）；可以统一将称重放到外层循环
+第二层循环：正序，因为同1个物品和添加无限次
 求最大价值/方法状态转移：dp[j] = Math.max(dp[j], value[i] + dp[j - weight[i]]);
 求最大价值/方法结果：int max = 0;for (int i = 0; i < bagSize + 1; i++) {max = Math.max(max, dp[i]);} return max;
 求总方法数状态转移：dp[j] += dp[j - weight[i]];
@@ -42,6 +44,12 @@ multiple背包问题：每个物品都有有限件
 # stock_sell
 ```text
 状态机转换
+Main1, 1支股票只买卖1次: dp[i][0] = Math.max(dp[i - 1][0], -prices[i]);
+Main2, 1支股票买卖多次: dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] - prices[i]);
+Main3, 1支股票买卖至多2次: 
+Main4, 1支股票买卖至多k次: 
+Main5, 1支股票买卖多次，卖出之后有冷冻期: dp[i][2] 卖出股票 ！
+Main6, 1支股票买卖多次，手续费: dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] + prices[i] - fee);
 ```
 ## str2
 ```text

@@ -2,7 +2,7 @@ package com.xcrj.dp.stock_sell;
 
 /**
  * https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/
- * 买卖股票至多k次
+ * 1支股票买卖至多k次 》买卖股票至多k次
  */
 public class Main4 {
     public int maxProfit(int k, int[] prices) {

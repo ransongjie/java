@@ -2,6 +2,8 @@ package com.xcrj.dp.stock_sell;
 
 /**
  * https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
+ * 1支股票买卖多次，手续费
+ * 
  * 只有一支股票
  * 股票只买卖多次
  * 买入到卖出有1次手续费

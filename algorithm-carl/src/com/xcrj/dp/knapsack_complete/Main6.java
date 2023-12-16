@@ -23,7 +23,9 @@ public class Main6 {
         Arrays.fill(dp, Integer.MAX_VALUE);
         dp[0] = 0;
         // 求组合。i*i是物品重量
+        // 控制数量
         for (int i = 1; i * i <= n; i++) {// ! 不从0开始，从1开始
+            // 控制重量
             for (int j = i * i; j < bagSize + 1; j++) {
                 // 不需要if条件，n一定可以由n个1组成
                 dp[j] = Math.min(dp[j], dp[j - i * i] + 1);

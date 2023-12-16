@@ -2,6 +2,8 @@ package com.xcrj.dp.stock_sell;
 
 /**
  * https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/
+ * 1支股票买卖多次，卖出之后有冷冻期
+ * 
  * 只有一支股票
  * 股票只买卖多次
  * 有冷冻期
