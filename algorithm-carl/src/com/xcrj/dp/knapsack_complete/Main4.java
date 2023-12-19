@@ -10,8 +10,8 @@ package com.xcrj.dp.knapsack_complete;
  */
 public class Main4 {
     public int climbStairs(int n) {
-        int[] weights = {1, 2};
         int bagSize = n;
+        int[] weights = {1, 2};
         int[] dp = new int[bagSize + 1];
         dp[0] = 1;
         // 先走1步再走2步 与 先走2步再走1步 顺序不同，需要将背包承重放到外for

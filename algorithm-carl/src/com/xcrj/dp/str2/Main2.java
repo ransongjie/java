@@ -3,11 +3,12 @@ package com.xcrj.dp.str2;
 /**
  * https://leetcode.cn/problems/distinct-subsequences/
  * 不同的子序列
+ * s中t出现的次数
  */
 public class Main2 {
     // s中t出现的次数
     public int numDistinct(String s, String t) {
-        //dp[i][j]=长度为i的s子数组 中 出现长度为j的t子数组 的子序列个数
+        //dp[i][j]=长度为i的s的子数组 中 出现长度为j的t的子数组 的子序列个数
         int[][] dp = new int[s.length() + 1][t.length() + 1];
         for (int i = 0; i < s.length() + 1; i++) {
             dp[i][0] = 1;// 空串在子数组中出现1次

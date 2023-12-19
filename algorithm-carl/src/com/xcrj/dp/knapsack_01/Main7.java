@@ -63,7 +63,7 @@ public class Main7 {
         for (int i = weight[0]; i < bagSize + 1; i++) {
             dp[i] = value[0];
         }
-        // 状态转移
+        // 状态转移。先物品再背包
         for (int i = 1; i < n; i++) {
             for (int j = bagSize; j >= weight[i]; j--) {// 倒序
                 dp[j] = Math.max(value[i] + dp[j - weight[i]], dp[j]);

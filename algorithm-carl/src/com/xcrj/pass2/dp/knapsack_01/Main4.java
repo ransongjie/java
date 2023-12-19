@@ -9,7 +9,7 @@ public class Main4 {
 
     /**
      * 物品=nums元素
-     * bagSize=left
+     * bagSize=left(num前添加+元素之和)
      * weight=nums
      * value=nums
      * @param nums
@@ -21,7 +21,7 @@ public class Main4 {
         for (int num : nums) {
             sum += num;
         }
-        // nums中元素全负或正，都不能凑成target
+        // nums中元素全负或正都不能凑成target
         if (Math.abs(target) > sum)
             return 0;
         // left(num前添加+元素之和)-(right添加-号元素之和)=target

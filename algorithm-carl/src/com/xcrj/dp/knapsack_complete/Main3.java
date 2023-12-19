@@ -16,7 +16,8 @@ public class Main3 {
     public int combinationSum4(int[] nums, int target) {
         int[] dp = new int[target + 1];
         dp[0] = 1;
-        // 若 先物品再背包，物品1一定会放到物品2的前面，构不成完整的排列
+        // 排列问题，背包在前
+        // 若先物品再背包，物品1一定会放到物品2的前面，构不成完整的排列
         for (int i = 0; i < target + 1; i++) {
             for (int j = 0; j < nums.length; j++) {
                 if (i >= nums[j]) {

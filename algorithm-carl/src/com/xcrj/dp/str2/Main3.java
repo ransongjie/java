@@ -3,6 +3,7 @@ package com.xcrj.dp.str2;
 /**
  * https://leetcode.cn/problems/delete-operation-for-two-strings/
  * 两个字符串的删除操作
+ * 删除word1或word2中任意单词，使得word1=word2的最少次数
  */
 public class Main3 {
     // 删除word1或word2中任意单词，使得word1=word2的最少次数

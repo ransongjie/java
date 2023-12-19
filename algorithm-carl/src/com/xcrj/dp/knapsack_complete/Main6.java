@@ -28,7 +28,7 @@ public class Main6 {
             // 控制重量
             for (int j = i * i; j < bagSize + 1; j++) {
                 // 不需要if条件，n一定可以由n个1组成
-                dp[j] = Math.min(dp[j], dp[j - i * i] + 1);
+                dp[j] = Math.min(dp[j], 1 + dp[j - i * i]);
             }
         }
 
