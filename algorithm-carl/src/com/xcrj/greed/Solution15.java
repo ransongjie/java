@@ -4,7 +4,7 @@ package com.xcrj.greed;
  * 合并区间
  * 合并重叠区间
  */
-class Solution {
+public class Solution15 {
     public int[][] merge(int[][] intervals) {
         List<int[]> ans=new LinkedList();
         //根据区间左边界正序
