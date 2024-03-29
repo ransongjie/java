@@ -1,4 +1,7 @@
 package com.xcrj.greed;
+
+import java.util.Arrays;
+
 /*
  * https://leetcode.cn/problems/minimum-number-of-arrows-to-burst-balloons/
  * 贪心策略：将尽可能多的气球重叠在一起，多个气球的最小右边界内的气球只需要1箭
@@ -10,7 +13,7 @@ public class Solution12{
      * 前面气球的最小右边界>=遍历气球的左边界，更新前面气球的最小右边界（包括新气球）
      */
     public int findMinArrowShots(int[][] points) {
-        Arrays.sort(points,(a,b)->Integer.compare(a[0], b[0]));// Integer内置比较方法，防止溢出
+        Arrays.sort(points,(a, b)->Integer.compare(a[0], b[0]));// Integer内置比较方法，防止溢出
         // 至少需要1箭
         int ans=1;
         for(int i=1;i<points.length;i++){

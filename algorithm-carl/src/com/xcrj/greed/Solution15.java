@@ -1,4 +1,9 @@
 package com.xcrj.greed;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 /*
  * https://leetcode.cn/problems/merge-intervals/
  * 合并区间
@@ -8,7 +13,7 @@ public class Solution15 {
     public int[][] merge(int[][] intervals) {
         List<int[]> ans=new LinkedList();
         //根据区间左边界正序
-        Arrays.sort(intervals,(a,b)->Integer.compare(a[0],b[0]));
+        Arrays.sort(intervals,(a, b)->Integer.compare(a[0],b[0]));
         int left=intervals[0][0];
         int mostRight=intervals[0][1];// 区间最大右边界
         //遍历更新最大右边界
@@ -26,6 +31,6 @@ public class Solution15 {
         }
         // 最后1个区间
         ans.add(new int[]{left,mostRight});
-        return ans.toArray(new int[ans.length][]);
+        return ans.toArray(new int[ans.size()][]);
     }
 }

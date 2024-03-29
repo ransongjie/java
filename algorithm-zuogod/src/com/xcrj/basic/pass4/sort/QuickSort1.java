@@ -3,9 +3,9 @@ package com.xcrj.basic.pass4.sort;
 public class QuickSort1 implements MySort {
 
     public static void main(String[] args) {
-        QuickSort quickSort = new QuickSort();
-        CPer.test1(quickSort);
-        CPer.test2(quickSort);
+        MySort mySort = new QuickSort1();
+        CPer.test1(mySort);
+        CPer.test2(mySort);
     }
 
     @Override
@@ -33,11 +33,12 @@ public class QuickSort1 implements MySort {
         int l = s - 1;
         int r = e + 1;
         int t = as[e];
-        while (s < e) {
+        while (s < r) {
             if (as[s] < t) {
                 CPer.swap(as, ++l, s);
             } else if (as[s] > t) {
                 CPer.swap(as, --r, s);
+                s--;
             }
             s++;
         }

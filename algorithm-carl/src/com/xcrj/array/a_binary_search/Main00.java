@@ -1,5 +1,9 @@
 package com.xcrj.array.a_binary_search;
 
+/**
+ * 二分查找
+ * https://leetcode.cn/problems/binary-search/description/
+ */
 public class Main00 {
     public static void main(String[] args) {
         int[] as = {1, 2, 3, 4, 7, 9, 10};

@@ -2,6 +2,7 @@ package com.xcrj.array.a_binary_search;
 
 /**
  * 搜索插入位置
+ * https://leetcode.cn/problems/search-insert-position/
  */
 public class Main01 {
     public int searchInsert(int[] nums, int target) {

@@ -1,4 +1,8 @@
 package com.xcrj.greed;
+
+import java.util.LinkedList;
+import java.util.List;
+
 /*
  * https://leetcode.cn/problems/partition-labels/description/
  * 划分字母区间

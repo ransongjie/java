@@ -56,8 +56,7 @@ public class A034SuperWaterK {
                 entry.setValue(entry.getValue()-1);
             }
         }
-        for (Integer cand :
-                candHP0) {
+        for (Integer cand : candHP0) {
             candHP.remove(cand);
         }
     }

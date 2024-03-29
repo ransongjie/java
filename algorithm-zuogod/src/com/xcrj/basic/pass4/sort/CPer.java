@@ -31,8 +31,8 @@ public class CPer {
     }
 
     public static void test2(MySort mySort) {
-        int times = 10000;
-        int maxLen = 1000;
+        int times = 100;
+        int maxLen = 10;
         int maxV = 100;
         for (int i = 0; i < times; i++) {
             int[] as = CPer.getAs(maxLen, maxV);

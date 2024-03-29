@@ -1,8 +1,8 @@
 package com.xcrj.array.a_binary_search;
 
 /**
- * https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/
  * 在排序数组中查找元素的第一个和最后一个位置
+ * https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/
  */
 public class Main02 {
     public int[] searchRange(int[] nums, int target) {

@@ -1,4 +1,9 @@
 package com.xcrj.greed;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 /*
  * https://leetcode.cn/problems/queue-reconstruction-by-height/
  * 根据身高重建队列
@@ -9,7 +14,7 @@ public class Solution11{
      * 遍历排序后的链表，将元素插入到第k个位置
      */
     public int[][] reconstructQueue(int[][] people) {
-        Arrays.sort(people,(a,b)->{
+        Arrays.sort(people,(a, b)->{
             if(a[0]==b[0]) return a[1]-b[1];
             return b[0]-a[0];
         });

@@ -37,6 +37,12 @@ public class Main4 {
         // dp[i][j]=dp[0~i][背包承重j]=0~i物品凑成背包承重j的方法数
         int[][] dp = new int[n][bagSize + 1];
         // 初始状态
+        // 只有第1个物品，遍历背包
+        for (int i = 0; i < bagSize + 1; i++) {
+            // 只有1个物品怎么凑成背包i，只有当背包i=weight[0]，把这个物品放入背包中一种方法
+            if (weight[0] == i)
+                dp[0][i] = 1;
+        }
         // 背包为0，遍历物品
         int zeroNum = 0;
         for (int i = 0; i < n; i++) {
@@ -48,12 +54,6 @@ public class Main4 {
             if (weight[i] == 0)
                 zeroNum++;
             dp[i][0] = (int)Math.pow(2, zeroNum);
-        }
-        // 只有第1个物品，遍历背包
-        for (int i = 0; i < bagSize + 1; i++) {
-            // 只有1个物品怎么凑成背包i，只有当背包i=weight[0]，把这个物品放入背包中一种方法
-            if (weight[0] == i)
-                dp[0][i] = 1;
         }
         // 状态转移
         for (int i = 1; i < n; i++) {

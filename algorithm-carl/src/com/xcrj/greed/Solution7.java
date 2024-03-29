@@ -1,4 +1,8 @@
 package com.xcrj.greed;
+
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
 /*
 https://leetcode.cn/problems/maximize-sum-of-array-after-k-negations/
 K 次取反后最大化的数组和
@@ -11,7 +15,7 @@ K 次取反后最大化的数组和
 public class Solution7{
     public int largestSumAfterKNegations(int[] nums, int K) {
         // 按照绝对值从大到小排序
-        nums=IntStream.of(nums).boxed()
+        nums= IntStream.of(nums).boxed()
         .sorted((o1,o2)->Math.abs(o1)<Math.abs(o2)?1:Math.abs(o1)==Math.abs(o2)?0:-1)
         .mapToInt(Integer::intValue)
         .toArray();
