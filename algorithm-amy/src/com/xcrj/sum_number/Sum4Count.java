@@ -20,7 +20,7 @@ import java.util.Map;
  * (0, 0, 0, 1) -> A[0] + B[0] + C[0] + D[1] = 1 + (-2) + (-1) + 2 = 0
  * (1, 1, 0, 0) -> A[1] + B[1] + C[0] + D[0] = 2 + (-1) + (-1) + 0 = 0
  */
-public class Sum4II {
+public class Sum4Count {
     public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
         int ans = 0;
         Map<Integer, Integer> map = new HashMap<>();//map<num,数量>
