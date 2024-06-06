@@ -2,7 +2,7 @@ package com.xcrj;
 
 /**
  * jdk 14
- * 接近break问题，变量赋值问题
+ * 自动break，switch的结果赋值给变量
  * switch 表达式和箭头标签
  * switch case -> 替代 switch case : break
  * Java 14 中成为正式功能
