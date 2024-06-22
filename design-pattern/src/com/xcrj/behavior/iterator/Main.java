@@ -5,7 +5,7 @@ package com.xcrj.behavior.iterator;
 实现类：颜色迭代器、颜色容器
 具体迭代器是具体容器的内部类
 javac -d ./cp  -encoding UTF-8 *.java
-java -XX:+ShowCodeDetailsInExceptionMessages -cp ./cp com.xcrj.behavior.strategy.Main
+java -XX:+ShowCodeDetailsInExceptionMessages -cp ./cp com.xcrj.behavior.iterator.Main
  */
 public class Main {
     public static void main(String[] args) {
